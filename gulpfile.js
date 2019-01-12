@@ -32,10 +32,8 @@ gulp.task('serve', function() {
 
   gulp.watch("src/stylus/*.styl", gulp.series('stylus'));
   gulp.watch("src/pug/*.pug", gulp.series('pug'));
+  gulp.watch("src/images/*.svg", gulp.series('pug'));
   gulp.watch(site + "*.html").on('change', browserSync.reload);
 });
 
-  
-// });
-
-// gulp.task('default', ['watch']);
+gulp.task('default', gulp.series('serve'));

@@ -1,0 +1,102 @@
+@font-face
+  font-family Microgramma D Extended
+  font-weight bold
+  src url(fonts/MicrogrammaD-BoldExte.woff2)
+  src url(fonts/MicrogrammaD-BoldExte.woff)
+
+// Variables
+margin__default = 1.5rem
+font-family__heading = Microgramma D Extended, sans-serif
+font-family__text = sans-serif
+color__1 = #000000
+color__2 = darken(#7f8082, 30%)
+color__3 = #FFFFFF
+color__4 = lighten(color__2, 50%)
+color__5 = #25cfe3
+background-color__1 = color__2
+background-color__2 = color__1
+background-color__3 = color__3
+
+// Mixins
+anchor(link-color, link-color--hover, link-color--visited)
+  a
+    color: link-color
+    &:hover
+      color: link-color--hover
+    &:visited
+      color: link-color--visited
+
+body
+  font-family: font-family__text
+  background-color: background-color__1
+
+h1, h2, h3, h4, h5
+  font-family: font-family__text
+  text-transform: uppercase
+  font-weight: bold
+  margin-bottom: .5em
+
+h1, h2
+  font-family: font-family__heading
+
+a
+  text-decoration: none
+  color: color__3
+
+svg
+  overflow: visible
+
+// Video
+.video 
+  position: relative
+  padding-bottom: 56.25%
+  padding-top: 25px
+  height: 0
+
+.video iframe
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+
+.block
+  overflow-x: hidden
+  margin-bottom: 3rem
+  & img
+    width: 100%
+    height: auto
+    display: block
+
+.block-title
+  display: flex
+  border-bottom: .2em solid color__3
+  width: 120%
+
+.block-title__before
+  // display: block
+  // background-color: background-color__3
+  // width: margin__default
+
+.block-title__text
+  margin-left: margin__default
+  margin-right: .75em
+  
+.block-title__after
+  display: block
+  background-color: background-color__3
+  width: 100%;
+  transform: skewX(-30deg)
+
+.text-block
+  padding: margin__default
+
+.text-block--inverse
+  background-color: background-color__2
+  color: color__4
+  h3
+    color: color__3
+
+.text-block p
+  line-height: 1.35
+
