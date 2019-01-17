@@ -1,0 +1,4 @@
+mixin article(title, slug)
+  article(class="block " + slug)
+    h2.block__title #[span.block__title__text title] #[span.block__title__decoration(role='presentation')]
+    div.block__content

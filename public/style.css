@@ -356,10 +356,6 @@ html {
 *:after {
   box-sizing: inherit;
 }
-ul {
-  padding: 0;
-  list-style: none;
-}
 @font-face {
   font-family: Microgramma D Extended;
   font-weight: bold;
@@ -368,7 +364,7 @@ ul {
 }
 body {
   font-family: sans-serif;
-  background-color: #595a5b;
+  background-color: #696a6c;
 }
 h1,
 h2,
@@ -387,6 +383,10 @@ h2 {
 a {
   text-decoration: none;
   color: #fff;
+}
+.list-style--none {
+  list-style: none;
+  padding-left: 0;
 }
 svg {
   overflow: visible;
@@ -413,48 +413,55 @@ svg {
   height: auto;
   display: block;
 }
-.block-title {
-  display: flex;
+.block__title {
+  display: inline-block;
+  padding-left: 1.5rem;
+  padding-right: 1em;
   border-bottom: 0.2em solid #fff;
-  width: 120%;
-}
-.block-title__text {
-  margin-left: 1.5rem;
-  margin-right: 0.75em;
-}
-.block-title__after {
-  display: block;
-  background-color: #fff;
-  width: 100%;
+  box-shadow: 1.25em 0 #fff, 2.25em 0 #d9d9d9, 3.05em 0 #bfbfbf, 7em 0 #ababab;
   transform: skewX(-30deg);
+  margin-bottom: 0;
 }
-.text-block {
+.block__title__text {
+  display: inline-block;
+  transform: skewX(30deg);
+}
+.block__content {
   padding: 1.5rem;
+  background-color: #191919;
+  color: #bbbcbd;
 }
-.text-block--inverse {
-  background-color: #000;
-  color: #acadad;
+.block__content h3 {
+  color: #d9d9d9;
 }
-.text-block--inverse h3 {
-  color: #fff;
-}
-.text-block p {
+.block__content p {
   line-height: 1.35;
 }
 .masthead {
+  display: flex;
+  flex-direction: column;
   margin: 1.5rem;
+  height: 90vh;
 }
 .logo {
   width: 100%;
+  order: 20;
+}
+.video-production {
+  font-size: 6.5vw;
+  margin: 0;
+  order: 10;
 }
 .service-list {
-  margin-top: 0;
-}
-.service-list h3 {
-  margin: 0;
+  margin-top: 0.25em;
+  font-size: 1.17rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  order: 30;
 }
 .header-contact {
   margin-top: 5em;
+  order: 40;
 }
 .header-contact a {
   display: block;
@@ -478,4 +485,10 @@ svg {
 .header-subtext__stroke {
   stroke: #000;
   stroke-width: 0.5;
+}
+.profile-pic {
+  max-width: 300px;
+  overflow: hidden;
+  border-radius: 1rem;
+  margin: 1rem auto 3rem;
 }

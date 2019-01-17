@@ -1,13 +1,10 @@
-header.masthead
-  //- div.logo
-  include ../images/nigelyons-logo.svg
-  ul.service-list
-    li: h3 Direction
-    li: h3 Production
-    li: h3 Cinematography
-    li: h3 Editing
-  div.header-contact
+header.masthead(role='banner')
+  include ../svg/nigelyons-logo.svg
+  h1.video-production Video Production
+  ul.service-list.list-style--none(aria-label='Services')
+    li Direction
+    li Production
+    li Cinematography
+    li Editing
+  div.header-contact(aria-label='Header Contact')
     a(href='#') nigel@nigelyons.com
-    a(href='#') 614.560.4887
-  div.header-subtext
-    include ../images/4k.svg

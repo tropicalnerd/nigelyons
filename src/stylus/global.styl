@@ -9,10 +9,14 @@ margin__default = 1.5rem
 font-family__heading = Microgramma D Extended, sans-serif
 font-family__text = sans-serif
 color__1 = #000000
-color__2 = darken(#7f8082, 30%)
+color__2 = darken(#7f8082, 17%)
 color__3 = #FFFFFF
-color__4 = lighten(color__2, 50%)
+color__4 = lighten(color__2, 55%)
 color__5 = #25cfe3
+color__6 = darken(color__3, 15%)
+color__7 = darken(color__3, 25%)
+color__8 = darken(color__3, 33%)
+color__9 = #191919
 background-color__1 = color__2
 background-color__2 = color__1
 background-color__3 = color__3
@@ -43,6 +47,10 @@ a
   text-decoration: none
   color: color__3
 
+.list-style--none
+  list-style: none
+  padding-left: 0
+
 svg
   overflow: visible
 
@@ -68,35 +76,24 @@ svg
     height: auto
     display: block
 
-.block-title
-  display: flex
+.block__title
+  display: inline-block
+  padding-left: margin__default
+  padding-right: 1em
   border-bottom: .2em solid color__3
-  width: 120%
-
-.block-title__before
-  // display: block
-  // background-color: background-color__3
-  // width: margin__default
-
-.block-title__text
-  margin-left: margin__default
-  margin-right: .75em
-  
-.block-title__after
-  display: block
-  background-color: background-color__3
-  width: 100%;
+  box-shadow: 1.25em 0 color__3, 2.25em 0 color__6, 3.05em 0 color__7, 7em 0 color__8
   transform: skewX(-30deg)
+  margin-bottom: 0
 
-.text-block
+.block__title__text
+  display: inline-block
+  transform: skewX(30deg)
+
+.block__content
   padding: margin__default
-
-.text-block--inverse
-  background-color: background-color__2
+  background-color: color__9
   color: color__4
   h3
-    color: color__3
-
-.text-block p
-  line-height: 1.35
-
+    color: darken(color__3, 15%)
+  p
+   line-height: 1.35

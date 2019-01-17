@@ -1,4 +1,6 @@
+/* eslint-disable semi */
 var gulp = require('gulp');
+var svgo = require('gulp-svgo');
 var pug = require('gulp-pug');
 var stylus = require('gulp-stylus');
 var browserSync = require('browser-sync').create();
@@ -22,17 +24,41 @@ gulp.task('stylus', function () {
     .pipe(browserSync.stream());
 });
 
-// // browserSync and file watching
-gulp.task('serve', function() {
+// Clean SVGs
+gulp.task('svgo', () => {
+  return gulp.src('src/images/*.svg')
+    .pipe(svgo(
+      {
+        plugins: [{
+          removeTitle: false
+        }, {
+          removeDesc: false
+        }, {
+          removeXMLNS: true
+        }, {
+          removeUnknownsAndDefaults: {
+            keepRoleAttr: true
+          }
+        }, {
+          removeViewBox: false
+        }, {
+          removeDimensions: true
+        }]
+      }
+    ))
+    .pipe(gulp.dest('src/svg'));
+});
 
+// // browserSync and file watching
+gulp.task('serve', function () {
   browserSync.init({
-      server: site,
-      browser: 'FireFox Developer Edition'
+    server: site,
+    browser: 'FireFox Developer Edition'
   });
 
   gulp.watch("src/stylus/*.styl", gulp.series('stylus'));
   gulp.watch("src/pug/*.pug", gulp.series('pug'));
-  gulp.watch("src/images/*.svg", gulp.series('pug'));
+  gulp.watch("src/images/*.svg", gulp.series('svgo', 'pug'));
   gulp.watch(site + "*.html").on('change', browserSync.reload);
 });
 
