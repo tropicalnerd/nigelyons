@@ -54,23 +54,9 @@ a
 svg
   overflow: visible
 
-// Video
-.video 
-  position: relative
-  padding-bottom: 56.25%
-  padding-top: 25px
-  height: 0
-
-.video iframe
-  position: absolute
-  top: 0
-  left: 0
-  width: 100%
-  height: 100%
-
 .block
   overflow-x: hidden
-  margin-bottom: 3rem
+  margin-bottom: 2.5rem
   & img
     width: 100%
     height: auto
@@ -90,10 +76,25 @@ svg
   transform: skewX(30deg)
 
 .block__content
-  padding: margin__default
   background-color: color__9
   color: color__4
+
+.block__text
+  padding: margin__default
   h3
     color: darken(color__3, 15%)
   p
    line-height: 1.35
+
+// Video
+.block__video 
+  position: relative
+  padding-bottom: 56.25%
+  padding-top: 25px
+  height: 0
+  iframe
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%

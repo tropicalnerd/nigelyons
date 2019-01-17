@@ -391,22 +391,9 @@ a {
 svg {
   overflow: visible;
 }
-.video {
-  position: relative;
-  padding-bottom: 56.25%;
-  padding-top: 25px;
-  height: 0;
-}
-.video iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
 .block {
   overflow-x: hidden;
-  margin-bottom: 3rem;
+  margin-bottom: 2.5rem;
 }
 .block img {
   width: 100%;
@@ -427,15 +414,30 @@ svg {
   transform: skewX(30deg);
 }
 .block__content {
-  padding: 1.5rem;
   background-color: #191919;
   color: #bbbcbd;
 }
-.block__content h3 {
+.block__text {
+  padding: 1.5rem;
+}
+.block__text h3 {
   color: #d9d9d9;
 }
-.block__content p {
+.block__text p {
   line-height: 1.35;
+}
+.block__video {
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 25px;
+  height: 0;
+}
+.block__video iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 .masthead {
   display: flex;
