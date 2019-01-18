@@ -1,0 +1,36 @@
+// Variables
+margin__default = 1.5rem
+font-family__heading = Microgramma D Extended, sans-serif
+font-family__text = sans-serif
+color__1 = #000000
+color__2 = darken(#7f8082, 17%)
+color__3 = #FFFFFF
+color__4 = lighten(color__2, 55%)
+color__5 = #25cfe3
+color__6 = darken(color__3, 15%)
+color__7 = darken(color__3, 25%)
+color__8 = darken(color__3, 33%)
+color__9 = #191919
+background-color__1 = color__2
+background-color__2 = color__1
+background-color__3 = color__3
+
+color__base = (#7f8082)
+color__0 = darken(color__base, 85%)
+color__1 = darken(color__base, 70%)
+color__2 = darken(color__base, 50%)
+color__3 = darken(color__base, 30%)
+color__4 = color__base
+color__5 = lighten(color__base, 30%)
+color__6 = lighten(color__base, 50%)
+color__7 = lighten(color__base, 70%)
+color__8 = lighten(color__base, 85%)
+
+// Mixins
+anchor(link-color, link-color--hover, link-color--visited)
+  a
+    color: link-color
+    &:hover
+      color: link-color--hover
+    &:visited
+      color: link-color--visited

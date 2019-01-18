@@ -43,6 +43,10 @@ gulp.task('svgo', () => {
           removeViewBox: false
         }, {
           removeDimensions: true
+        }, {
+          removeAttrs: {
+            attrs: 'fill'
+          }
         }]
       }
     ))
@@ -56,10 +60,10 @@ gulp.task('serve', function () {
     browser: 'FireFox Developer Edition'
   });
 
-  gulp.watch("src/stylus/*.styl", gulp.series('stylus'));
-  gulp.watch("src/pug/*.pug", gulp.series('pug'));
-  gulp.watch("src/images/*.svg", gulp.series('svgo', 'pug'));
-  gulp.watch(site + "*.html").on('change', browserSync.reload);
+  gulp.watch('src/stylus/*.styl', gulp.series('stylus'));
+  gulp.watch('src/pug/*.pug', gulp.series('pug'));
+  gulp.watch('src/images/*.svg', gulp.series('svgo', 'pug'));
+  gulp.watch(site + '*.html').on('change', browserSync.reload);
 });
 
 gulp.task('default', gulp.series('serve'));

@@ -4,40 +4,16 @@
   src url(fonts/MicrogrammaD-BoldExte.woff2)
   src url(fonts/MicrogrammaD-BoldExte.woff)
 
-// Variables
-margin__default = 1.5rem
-font-family__heading = Microgramma D Extended, sans-serif
-font-family__text = sans-serif
-color__1 = #000000
-color__2 = darken(#7f8082, 17%)
-color__3 = #FFFFFF
-color__4 = lighten(color__2, 55%)
-color__5 = #25cfe3
-color__6 = darken(color__3, 15%)
-color__7 = darken(color__3, 25%)
-color__8 = darken(color__3, 33%)
-color__9 = #191919
-background-color__1 = color__2
-background-color__2 = color__1
-background-color__3 = color__3
-
-// Mixins
-anchor(link-color, link-color--hover, link-color--visited)
-  a
-    color: link-color
-    &:hover
-      color: link-color--hover
-    &:visited
-      color: link-color--visited
-
 body
   font-family: font-family__text
-  background-color: background-color__1
+  color: color__0
+  background-color: color__4
 
 h1, h2, h3, h4, h5
   font-family: font-family__text
   text-transform: uppercase
   font-weight: bold
+  color: color__0
   margin-bottom: .5em
 
 h1, h2
@@ -45,7 +21,7 @@ h1, h2
 
 a
   text-decoration: none
-  color: color__3
+  color: color__8
 
 .list-style--none
   list-style: none
@@ -53,6 +29,12 @@ a
 
 svg
   overflow: visible
+
+.svg-fill--color__0
+  fill: color__0
+
+.svg-fill--color__8
+  fill: color__8
 
 .block
   overflow-x: hidden
@@ -76,13 +58,13 @@ svg
   transform: skewX(30deg)
 
 .block__content
-  background-color: color__9
-  color: color__4
+  background-color: color__1
+  color: color__6
 
 .block__text
   padding: margin__default
   h3
-    color: darken(color__3, 15%)
+    color: color__7
   p
    line-height: 1.35
 

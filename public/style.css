@@ -364,7 +364,8 @@ html {
 }
 body {
   font-family: sans-serif;
-  background-color: #696a6c;
+  color: #131314;
+  background-color: #7f8082;
 }
 h1,
 h2,
@@ -374,6 +375,7 @@ h5 {
   font-family: sans-serif;
   text-transform: uppercase;
   font-weight: bold;
+  color: #131314;
   margin-bottom: 0.5em;
 }
 h1,
@@ -382,7 +384,7 @@ h2 {
 }
 a {
   text-decoration: none;
-  color: #fff;
+  color: #ececec;
 }
 .list-style--none {
   list-style: none;
@@ -390,6 +392,12 @@ a {
 }
 svg {
   overflow: visible;
+}
+.svg-fill--color__0 {
+  fill: #131314;
+}
+.svg-fill--color__8 {
+  fill: #ececec;
 }
 .block {
   overflow-x: hidden;
@@ -404,8 +412,8 @@ svg {
   display: inline-block;
   padding-left: 1.5rem;
   padding-right: 1em;
-  border-bottom: 0.2em solid #fff;
-  box-shadow: 1.25em 0 #fff, 2.25em 0 #d9d9d9, 3.05em 0 #bfbfbf, 7em 0 #ababab;
+  border-bottom: 0.2em solid #595a5b;
+  box-shadow: 1.25em 0 #595a5b, 2.25em 0 #bfbfc0, 3.05em 0 #d9d9da, 7em 0 #ececec;
   transform: skewX(-30deg);
   margin-bottom: 0;
 }
@@ -414,14 +422,14 @@ svg {
   transform: skewX(30deg);
 }
 .block__content {
-  background-color: #191919;
-  color: #bbbcbd;
+  background-color: #262627;
+  color: #bfbfc0;
 }
 .block__text {
   padding: 1.5rem;
 }
 .block__text h3 {
-  color: #d9d9d9;
+  color: #d9d9da;
 }
 .block__text p {
   line-height: 1.35;
@@ -481,11 +489,11 @@ svg {
 }
 .header-subtext__4k {
   fill: none;
-  stroke: #000;
+  stroke: #262627;
   stroke-width: 0.5;
 }
 .header-subtext__stroke {
-  stroke: #000;
+  stroke: #262627;
   stroke-width: 0.5;
 }
 .profile-pic {
