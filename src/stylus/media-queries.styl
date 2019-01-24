@@ -1,0 +1,57 @@
+@media (min-width: 480px)
+  .masthead
+    grid-template-areas: "logo video-production" "logo service-list" "logo header-contact"
+    grid-template-rows: auto auto auto
+    grid-template-columns: 1fr auto
+    grid-column-gap: 4%
+    justify-content: end
+    height: auto
+    margin-bottom: 7vw
+
+  .logo
+    grid-area: logo
+
+  .video-production
+    grid-area: video-production
+    line-height: 1
+    font-size: 3vw
+    text-align: right
+    // border-bottom: .15em solid color__0
+    text-decoration: underline
+    text-decoration-line: 2em
+
+    margin: 0
+
+  .service-list
+    grid-area: service-list 
+    font-size: 2.6vw
+    text-align: right
+    margin-top: .5em
+
+  .header-contact
+    grid-area: header-contact
+    text-align: right
+    font-size: 3vw
+    margin: 0
+    align-content: end
+
+@media (min-width: 660px)
+  .block__video--reel
+    margin-left: margin__default
+    margin-right: margin__default
+  .block__text--about
+    grid-template-columns: minmax(100px, 300px) minmax(20em, 30em)
+    grid-template-rows: auto
+    grid-template-areas: "figure text"
+    justify-content: center
+  .block__figure--about
+    justify-self: right
+  .block__text-wrap--about
+    justify-self: left
+  .block__content--portfolio
+    padding-left: margin__default
+    padding-right: margin__default
+  
+  .portfolio-item
+    round-corners()
+    

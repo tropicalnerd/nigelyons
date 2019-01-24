@@ -1,9 +1,23 @@
-mixin article(title, slug)
-  article(class="block " + slug)
-    h2.block__title #[span.block__title__text #{title}] #[span.block__title__decoration(role='presentation')]
-    div.block__content
+mixin c-block(title, slug)
+  section(class="block block--" + slug)
+    h2.block__title #[span.block__title__text #{title}]#[span.block__title__decoration(role='presentation') #[span]#[span]#[span]#[span]]
+    div(class="block__content block__content--" + slug)
       if block
         block
       else
         div.block__text
           p #{title} content goes here.
+
+mixin portfolio-item(title, desc, date, genre)
+  .portfolio-item
+    h3.portfolio-item__title #{title}
+    .portfolio-item__video
+      if block
+        block
+      else
+        .block__text
+          p #{title} video goes here
+    .portfolio-item__meta
+      .portfolio-item__desc #{desc}
+      .portfolio-item__date #{date}
+      .portfolio-item__genre #{genre}

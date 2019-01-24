@@ -1,50 +1,53 @@
 .masthead
-  display: flex
-  flex-direction: column
+  display: grid
   margin: margin__default
-  height: 90vh
+  height: calc(100vh - 50px)
+  grid-template-areas: "video-production" "logo" "service-list" "header-contact"
+  grid-template-rows: auto auto auto 1fr
 
 .logo
   width: 100%
-  order: 20
+  grid-area: logo
+  font-size: font-size__header-contact-landscape
+  padding-bottom: .9vw
 
 .video-production
-  font-size: 6.5vw
+  font-size: "calc(calc(100vw - calc(2 * %s)) / 12.979)" % margin__default
   margin: 0
-  order: 10
+  grid-area: video-production
 
 .service-list
-  margin-top: .25em
+  margin: .25em 0
   font-size: 1.17rem
   font-weight: bold
   text-transform: uppercase
-  order: 30
+  grid-area: service-list
 
 .header-contact
-  margin-top: 5em
-  order: 40
-  & a
-    display: block
-    font-size: 1.17rem
+  grid-area: header-contact
+  align-self: center
+  font-size: font-size__header-contact-landscape
+  margin: .35em 0
+  a
     font-weight: bold
-    margin: .35em 0
+    
 
-.header-subtext
-  margin-top: 3rem
-  display: flex
-  justify-content: flex-end
-  & svg
-    width: 11rem
+// .header-subtext
+//   margin-top: 3rem
+//   display: flex
+//   justify-content: flex-end
+//   & svg
+//     width: 11rem
 
-.header-subtext__4k
-  fill: none
-  stroke: color__1
-  stroke-width: .5
+// .header-subtext__4k
+//   fill: none
+//   stroke: color__1
+//   stroke-width: .5
 
-.header-subtext__text
-  // text-transform: uppercase
+// .header-subtext__text
+//   // text-transform: uppercase
 
-.header-subtext__stroke
-  stroke: color__1
-  stroke-width: .5
+// .header-subtext__stroke
+//   stroke: color__1
+//   stroke-width: .5
 

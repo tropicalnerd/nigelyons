@@ -1,11 +1,24 @@
 main.content
-    +article('Reel', 'reel')
-      div.block__video
+    +c-block('Reel', 'reel')
+      div.block__video.block__video--reel
         <iframe src="https://player.vimeo.com/video/120547617?color=ffffff&amp;title=0&amp;byline=0&amp;portrait=0" width="740" height="416" frameborder="0" allowfullscreen="allowfullscreen"></iframe>   
-    +article('About', 'about')
-      div.block__text
-        img(src='images/n-lyons_headshot_4-27-13_300x214.jpg' class="profile-pic" alt="Nigel headshot")
-        h3 Nigel Lyons
-        p Hailing from Ohio, now freelancing in Washington, DC. Shooter and editor of all things documentary, political, art, music and tv. Whether creating a captivating video for a successful Kickstarter campaign or shooting a music video in anamorphic widescreen, Nigel brings his unique ideas, vision and creative energies to every project.
-    +article('Portfolio', 'portfolio')
-    +article('Contact', 'contact')
+    +c-block('About', 'about')
+      div.block__text.block__text--about
+        figure.block__figure--about
+          img(src='images/n-lyons_headshot_4-27-13_300x214.jpg' alt="Nigel headshot")
+        div.block__text-wrap--about
+          h3 Nigel Lyons
+          p Hailing from Ohio, now freelancing in Washington, DC. Shooter and editor of all things documentary, political, art, music and tv. Whether creating a captivating video for a successful Kickstarter campaign or shooting a music video in anamorphic widescreen, Nigel brings his unique ideas, vision and creative energies to every project.
+    +c-block('Portfolio', 'portfolio')
+      +portfolio-item('Clones of Clones - Somebody Else', 'Directed, Filmed and Edited.', 'September 22, 2015', 'Music Video')
+        <iframe src="https://www.youtube.com/embed/hA4d5RYNZNg?rel=0" allowfullscreen="allowfullscreen" width="740" height="416" frameborder="0"></iframe>
+      +portfolio-item('Homeless in Washington', 'Filmed all principle photography.', 'February 10, 2014', 'Documentary')
+        <iframe src="//player.vimeo.com/video/86344628?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" width="740" height="416" frameborder="0"></iframe>
+      +portfolio-item('Congressdude - Full Pilot', 'Co-creator and director of photography', 'March 1, 2014', 'Comedy')
+        <iframe src="//www.youtube.com/embed/-SyngEalLz8" allowfullscreen="" width="740" height="416" frameborder="0"></iframe>
+      +portfolio-item('Irvine for Congress: The Third Finger', 'Shot and produced this ad for Travis Irvine’s congressional campaign.', 'May 7, 2014', 'Political')
+        <iframe src="//www.youtube.com/embed/jt2fHsPqdzU" allowfullscreen="" width="740" height="416" frameborder="0"></iframe>
+      +portfolio-item('The Importance of S/4HANA', 'Filmed', 'February 25, 2015', 'Corporate')
+        <iframe src="https://www.youtube.com/embed/7S4-_--ZvkE?rel=0" allowfullscreen="allowfullscreen" width="740" height="416" frameborder="0"></iframe>
+      
+    +c-block('Contact', 'contact')

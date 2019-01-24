@@ -1,20 +1,18 @@
 // Variables
 margin__default = 1.5rem
-font-family__heading = Microgramma D Extended, sans-serif
-font-family__text = sans-serif
-color__1 = #000000
-color__2 = darken(#7f8082, 17%)
-color__3 = #FFFFFF
-color__4 = lighten(color__2, 55%)
-color__5 = #25cfe3
-color__6 = darken(color__3, 15%)
-color__7 = darken(color__3, 25%)
-color__8 = darken(color__3, 33%)
-color__9 = #191919
-background-color__1 = color__2
-background-color__2 = color__1
-background-color__3 = color__3
 
+// Typography
+font-family__heading = Microgramma D Extended, sans-serif
+font-family__text = 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif
+font-size__small = .875rem
+
+font-size__header-contact-landscape = 1.17rem
+
+margin__portfolio-item = margin__default / 2
+
+border-radius__default = .35rem
+
+// Colors
 color__base = (#7f8082)
 color__0 = darken(color__base, 85%)
 color__1 = darken(color__base, 70%)
@@ -34,3 +32,7 @@ anchor(link-color, link-color--hover, link-color--visited)
       color: link-color--hover
     &:visited
       color: link-color--visited
+
+round-corners()
+  border-radius: border-radius__default
+  overflow: hidden
