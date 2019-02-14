@@ -1,5 +1,26 @@
+
+// Margins
+margin__0--min = 0
+margin__0--mid = 5vw
+margin__1--min = 1.5rem
+margin__1--mid = 5vw
+margin__2--min = 1.5rem
+margin__2--mid = 2.5vw
+margin__3--min = .75rem
+margin__3--mid = .75rem
+
 // Variables
-margin__default = 1.5rem
+:root
+  --margin__0: margin__0--min
+  --margin__1: margin__1--min
+  --margin__2: margin__2--min
+  --margin__3: margin__3--min
+
+// Variable rename
+margin__0 = var(--margin__0)
+margin__1 = var(--margin__1)
+margin__2 = var(--margin__2)
+margin__3 = var(--margin__3)
 
 // Typography
 font-family__heading = Microgramma D Extended, sans-serif
@@ -8,7 +29,7 @@ font-size__small = .875rem
 
 font-size__header-contact-landscape = 1.17rem
 
-margin__portfolio-item = margin__default / 2
+// margin__portfolio-item = .75rem
 
 border-radius__default = .35rem
 

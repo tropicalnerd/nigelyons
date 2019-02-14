@@ -36,21 +36,33 @@
     align-content: end
 
 @media (min-width: 660px)
+  :root
+    --margin__0: margin__0--mid
+    --margin__1: margin__1--mid
+    --margin__2: margin__2--mid
+    --margin__3: margin__3--mid
+
   .block__video--reel
-    margin-left: margin__default
-    margin-right: margin__default
+    margin-left: margin__1
+    margin-right: margin__1
+
   .block__text--about
     grid-template-columns: minmax(100px, 300px) minmax(20em, 30em)
     grid-template-rows: auto
     grid-template-areas: "figure text"
     justify-content: center
+    grid-column-gap: margin__2
+
   .block__figure--about
     justify-self: right
+
   .block__text-wrap--about
     justify-self: left
+
   .block__content--portfolio
-    padding-left: margin__default
-    padding-right: margin__default
+    padding-left: margin__1
+    padding-right: margin__1
+    grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr))
   
   .portfolio-item
     round-corners()
