@@ -439,14 +439,34 @@ svg {
 .header-contact a {
   font-weight: bold;
 }
+.content {
+  display: grid;
+  grid-template-areas: "reel" "about" "portfolio" "contact";
+}
 .block {
   overflow-x: hidden;
   margin-bottom: 2.5rem;
+  display: grid;
+  grid-template-areas: "header" "content";
+  grid-template-columns: 100%;
+  grid-template-rows: auto 1fr;
 }
 .block img {
   width: 100%;
   height: auto;
   display: block;
+}
+.block--reel {
+  grid-area: reel;
+}
+.block--about {
+  grid-area: about;
+}
+.block--portfolio {
+  grid-area: portfolio;
+}
+.block--contact {
+  grid-area: contact;
 }
 .block__title {
   display: grid;
@@ -487,6 +507,7 @@ svg {
   background-color: #262627;
   color: #a5a6a8;
   padding: 1em 0;
+  height: 100%;
 }
 .block__text {
   margin: var(--margin__1);
@@ -647,5 +668,10 @@ svg {
   .portfolio-item {
     border-radius: 0.35rem;
     overflow: hidden;
+  }
+}
+@media (min-width: 1024px) {
+  .content {
+    grid-template-areas: "reel about" "portfolio portfolio" "contact contact";
   }
 }
