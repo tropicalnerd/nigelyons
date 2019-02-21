@@ -3,10 +3,10 @@
     grid-template-areas: "logo video-production" "logo service-list" "logo header-contact"
     grid-template-rows: auto auto auto
     grid-template-columns: 1fr auto
-    grid-column-gap: 4%
+    grid-column-gap: 7.5vw
     justify-content: end
     height: auto
-    margin-bottom: 7vw
+    // margin-bottom: 7vw
 
   .logo
     grid-area: logo
@@ -14,7 +14,7 @@
   .video-production
     grid-area: video-production
     line-height: 1
-    font-size: 3vw
+    font-size: 2.75vw
     text-align: right
     // border-bottom: .15em solid color__0
     text-decoration: underline
@@ -24,14 +24,14 @@
 
   .service-list
     grid-area: service-list 
-    font-size: 2.6vw
+    font-size: 2.25vw
     text-align: right
     margin-top: .5em
 
   .header-contact
     grid-area: header-contact
     text-align: right
-    font-size: 3vw
+    font-size: 2.25vw
     margin: 0
     align-content: end
 
@@ -48,10 +48,10 @@
 
   .block__text--about
     grid-template-columns: minmax(100px, 300px) minmax(20em, 30em)
-    grid-template-rows: auto
-    grid-template-areas: "figure text"
-    justify-content: center
-    grid-column-gap: margin__2
+    // grid-template-rows: auto
+    // grid-template-areas: "figure text"
+    // justify-content: center
+    // grid-column-gap: margin__2
 
   .block__figure--about
     justify-self: right
@@ -70,4 +70,8 @@
 @media (min-width: 1024px)
   .content
     grid-template-areas: "reel about" "portfolio portfolio" "contact contact"
-    
+    grid-template-columns:1fr minmax(30%, 40%)
+
+  .block__text--about
+    grid-template-columns: 100%
+

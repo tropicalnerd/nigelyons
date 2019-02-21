@@ -407,7 +407,7 @@ svg {
 }
 .masthead {
   display: grid;
-  margin: var(--margin__1);
+  padding: var(--margin__1);
   height: calc(100vh - 50px);
   grid-template-areas: "video-production" "logo" "service-list" "header-contact";
   grid-template-rows: auto auto auto 1fr;
@@ -415,8 +415,7 @@ svg {
 .logo {
   width: 100%;
   grid-area: logo;
-  font-size: 1.17rem;
-  padding-bottom: 0.9vw;
+  padding-bottom: 1.28vw;
 }
 .video-production {
   font-size: calc(calc(100vw - calc(2 * var(--margin__1))) / 12.979);
@@ -442,6 +441,7 @@ svg {
 .content {
   display: grid;
   grid-template-areas: "reel" "about" "portfolio" "contact";
+  grid-gap: var(--margin__2);
 }
 .block {
   overflow-x: hidden;
@@ -479,13 +479,11 @@ svg {
   padding: 0 1.5em 0 var(--margin__1);
   transform: skewX(30deg);
   border-bottom: 0.2em solid #ececec;
-  box-shadow: 0 0.1em #131314;
 }
 .block__title__decoration {
   width: 100vw;
   display: grid;
   grid-template-columns: 15vw 10vw 5vw auto;
-  box-shadow: 0 0.1em #131314;
 }
 .block__title__decoration span:nth-child(1) {
   background-color: #ececec;
@@ -541,10 +539,9 @@ svg {
 .block__text--about {
   display: grid;
   grid-template-columns: 100%;
-  grid-template-rows: auto auto;
-  grid-template-areas: "figure" "text";
-  grid-gap: var(--margin__2);
+  grid-gap: var(--margin__1);
   justify-items: center;
+  justify-content: center;
 }
 .block__text--about h3 {
   margin-top: 0;
@@ -552,7 +549,6 @@ svg {
 .block__figure--about {
   max-width: 300px;
   margin: 0 auto;
-  grid-area: figure;
 }
 .block__figure--about img {
   border-radius: 1rem;
@@ -560,7 +556,6 @@ svg {
 }
 .block--about__text-wrap {
   max-width: 30em;
-  grid-area: text;
 }
 .block__content--portfolio {
   display: grid;
@@ -605,10 +600,9 @@ svg {
     grid-template-areas: "logo video-production" "logo service-list" "logo header-contact";
     grid-template-rows: auto auto auto;
     grid-template-columns: 1fr auto;
-    grid-column-gap: 4%;
+    grid-column-gap: 7.5vw;
     justify-content: end;
     height: auto;
-    margin-bottom: 7vw;
   }
   .logo {
     grid-area: logo;
@@ -616,7 +610,7 @@ svg {
   .video-production {
     grid-area: video-production;
     line-height: 1;
-    font-size: 3vw;
+    font-size: 2.75vw;
     text-align: right;
     text-decoration: underline;
     text-decoration-line: 2em;
@@ -624,14 +618,14 @@ svg {
   }
   .service-list {
     grid-area: service-list;
-    font-size: 2.6vw;
+    font-size: 2.25vw;
     text-align: right;
     margin-top: 0.5em;
   }
   .header-contact {
     grid-area: header-contact;
     text-align: right;
-    font-size: 3vw;
+    font-size: 2.25vw;
     margin: 0;
     align-content: end;
   }
@@ -649,10 +643,6 @@ svg {
   }
   .block__text--about {
     grid-template-columns: minmax(100px, 300px) minmax(20em, 30em);
-    grid-template-rows: auto;
-    grid-template-areas: "figure text";
-    justify-content: center;
-    grid-column-gap: var(--margin__2);
   }
   .block__figure--about {
     justify-self: right;
@@ -673,5 +663,9 @@ svg {
 @media (min-width: 1024px) {
   .content {
     grid-template-areas: "reel about" "portfolio portfolio" "contact contact";
+    grid-template-columns: 1fr minmax(30%, 40%);
+  }
+  .block__text--about {
+    grid-template-columns: 100%;
   }
 }
