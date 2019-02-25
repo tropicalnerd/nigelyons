@@ -1,1 +1,7 @@
-footer
+footer.colophon
+  - var year = new Date().getFullYear()
+  if year > 2019
+    .copyright &copy;2019-#{year} Nigel Lyons
+  else
+    .copyright &copy;#{year} Nigel Lyons
+  .designed-by Website by #[a(href="https://charlesrobertson.co" alt="Web Design Portfolio of Charles Robertson") Charles Robertson]

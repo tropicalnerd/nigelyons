@@ -41,23 +41,19 @@
     --margin__1: margin__1--mid
     --margin__2: margin__2--mid
     --margin__3: margin__3--mid
-
-  .block__video--reel
-    margin-left: margin__1
-    margin-right: margin__1
+    --margin__4: margin__4--mid
 
   .block__text--about
     grid-template-columns: minmax(100px, 300px) minmax(20em, 30em)
-    // grid-template-rows: auto
-    // grid-template-areas: "figure text"
-    // justify-content: center
-    // grid-column-gap: margin__2
-
-  .block__figure--about
-    justify-self: right
-
-  .block__text-wrap--about
-    justify-self: left
+    grid-template-rows: auto 1fr
+    grid-template-areas: "figure heading" "figure text"
+    img
+      grid-area: figure
+    h3
+      grid-area: heading
+      margin-top: 0
+    p
+      grid-area: text
 
   .block__content--portfolio
     padding-left: margin__1
@@ -72,6 +68,17 @@
     grid-template-areas: "reel about" "portfolio portfolio" "contact contact"
     grid-template-columns:1fr minmax(30%, 40%)
 
+  .block--reel
+    border-radius: 0 border-radius__default border-radius__default 0
+
+  .block--about
+    border-radius: 0 0 0 border-radius__default
+    // overflow: hidden
+
   .block__text--about
     grid-template-columns: 100%
+    grid-template-areas: "figure" "heading" "text"
+    grid-row-gap: 1.5em
+    h3
+      margin-top: 1.5em
 

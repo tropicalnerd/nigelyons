@@ -361,6 +361,7 @@ html {
   --margin__1: 1.5rem;
   --margin__2: 1.5rem;
   --margin__3: 0.75rem;
+  --margin__4: 0.45rem;
 }
 @font-face {
   font-family: Microgramma D Extended;
@@ -424,7 +425,7 @@ svg {
 }
 .service-list {
   margin: 0.25em 0;
-  font-size: 1.17rem;
+  font-size: 5.85vw;
   font-weight: bold;
   text-transform: uppercase;
   grid-area: service-list;
@@ -432,7 +433,7 @@ svg {
 .header-contact {
   grid-area: header-contact;
   align-self: center;
-  font-size: 1.17rem;
+  font-size: 6.25vw;
   margin: 0.35em 0;
 }
 .header-contact a {
@@ -473,7 +474,7 @@ svg {
   grid-template-columns: auto 1fr;
   padding-right: 0;
   transform: skewX(-30deg);
-  margin-bottom: 0;
+  margin: 0;
 }
 .block__title__text {
   padding: 0 1.5em 0 var(--margin__1);
@@ -512,7 +513,6 @@ svg {
 }
 .block__text h3 {
   color: #d9d9da;
-  margin-top: 0.75em;
 }
 .block__text p {
   color: #bfbfc0;
@@ -539,23 +539,23 @@ svg {
 .block__text--about {
   display: grid;
   grid-template-columns: 100%;
-  grid-gap: var(--margin__1);
+  grid-column-gap: var(--margin__1);
+  grid-row-gap: var(--margin__2);
   justify-items: center;
   justify-content: center;
 }
-.block__text--about h3 {
-  margin-top: 0;
-}
-.block__figure--about {
+.block__text--about img {
   max-width: 300px;
   margin: 0 auto;
-}
-.block__figure--about img {
   border-radius: 1rem;
   overflow: hidden;
 }
-.block--about__text-wrap {
-  max-width: 30em;
+.block__text--about h3 {
+  width: 100%;
+  margin: var(--margin__2) 0 0;
+}
+.block__text--about p {
+  margin: 0;
 }
 .block__content--portfolio {
   display: grid;
@@ -567,7 +567,7 @@ svg {
   background-color: #000;
   display: grid;
   grid-template-rows: auto 1fr auto;
-  padding-bottom: 1%;
+  padding-bottom: 0.5%;
 }
 .portfolio-item__title {
   color: #d9d9da;
@@ -578,7 +578,7 @@ svg {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto auto;
-  grid-gap: var(--margin__3);
+  grid-gap: var(--margin__4);
   grid-template-areas: "desc desc" "date genre";
   font-size: 0.875rem;
   color: #7f8082;
@@ -594,6 +594,22 @@ svg {
 .portfolio-item__genre {
   grid-area: genre;
   text-align: right;
+}
+.colophon {
+  display: flex;
+  justify-content: space-between;
+  margin: var(--margin__1);
+  font-size: 0.875rem;
+  color: #262627;
+}
+.colophon a {
+  color: #d9d9da;
+}
+.colophon a:hover {
+  color: #d9d9da;
+}
+.colophon a:visited {
+  color: #d9d9da;
 }
 @media (min-width: 480px) {
   .masthead {
@@ -634,21 +650,24 @@ svg {
   :root {
     --margin__0: 5vw;
     --margin__1: 5vw;
-    --margin__2: 2.5vw;
-    --margin__3: 0.75rem;
-  }
-  .block__video--reel {
-    margin-left: var(--margin__1);
-    margin-right: var(--margin__1);
+    --margin__2: 3vw;
+    --margin__3: 1rem;
+    --margin__4: 0.6rem;
   }
   .block__text--about {
     grid-template-columns: minmax(100px, 300px) minmax(20em, 30em);
+    grid-template-rows: auto 1fr;
+    grid-template-areas: "figure heading" "figure text";
   }
-  .block__figure--about {
-    justify-self: right;
+  .block__text--about img {
+    grid-area: figure;
   }
-  .block__text-wrap--about {
-    justify-self: left;
+  .block__text--about h3 {
+    grid-area: heading;
+    margin-top: 0;
+  }
+  .block__text--about p {
+    grid-area: text;
   }
   .block__content--portfolio {
     padding-left: var(--margin__1);
@@ -665,7 +684,18 @@ svg {
     grid-template-areas: "reel about" "portfolio portfolio" "contact contact";
     grid-template-columns: 1fr minmax(30%, 40%);
   }
+  .block--reel {
+    border-radius: 0 0.35rem 0.35rem 0;
+  }
+  .block--about {
+    border-radius: 0 0 0 0.35rem;
+  }
   .block__text--about {
     grid-template-columns: 100%;
+    grid-template-areas: "figure" "heading" "text";
+    grid-row-gap: 1.5em;
+  }
+  .block__text--about h3 {
+    margin-top: 1.5em;
   }
 }

@@ -32,7 +32,7 @@
   grid-template-columns: auto 1fr
   padding-right: 0
   transform: skewX(-30deg)
-  margin-bottom: 0
+  margin: 0
 
 .block__title__text
   padding: 0 1.5em 0 margin__1
@@ -69,7 +69,7 @@
   margin: margin__1
   h3
     color: color__7
-    margin-top: .75em
+    // margin-top: .75em
   p
     color: color__6
     line-height: 1.35
@@ -90,35 +90,27 @@
 // Reel
 .block__video--reel  
   margin: 0 margin__0
-  // max-width: 67.5rem;
 
 // About
 .block__text--about
   display: grid
   grid-template-columns: 100%
-  // grid-auto-rows: auto
-  // grid-template-areas: "figure" "text"
-  grid-gap: margin__1
+  grid-column-gap: margin__1
+  grid-row-gap: margin__2
   justify-items: center
   justify-content: center
-  h3 
-    margin-top: 0
-
-.block__figure--about
-  max-width: 300px
-  margin: 0 auto
-  // grid-area: figure
   img
+    max-width: 300px
+    margin: 0 auto
     border-radius: 1rem
-    overflow: hidden  
-
-.block--about__text-wrap
-  max-width: 30em
-  // grid-area: text
-  // margin: 2rem auto 1rem
+    overflow: hidden
+  h3
+    width: 100% 
+    margin: margin__2 0 0
+  p
+    margin: 0
 
 // Portfolio
-
 .block__content--portfolio
   display: grid
   grid-gap: margin__2
@@ -129,7 +121,7 @@
   background-color: #000000
   display: grid
   grid-template-rows: auto 1fr auto
-  padding-bottom: 1%
+  padding-bottom: .5%
   
 .portfolio-item__title
   color: color__7
@@ -143,7 +135,7 @@
   display: grid
   grid-template-columns: 1fr 1fr
   grid-template-rows: auto auto
-  grid-gap: margin__3
+  grid-gap: margin__4
   grid-template-areas: "desc desc" "date genre"
   font-size: font-size__small
   color: color__4
