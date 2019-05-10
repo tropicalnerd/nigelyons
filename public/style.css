@@ -599,7 +599,7 @@ svg {
   display: flex;
   justify-content: space-between;
   margin: var(--margin__1);
-  font-size: 0.875rem;
+  font-size: 0.75rem;
   color: #262627;
 }
 .colophon a {
@@ -654,6 +654,9 @@ svg {
     --margin__3: 1rem;
     --margin__4: 0.6rem;
   }
+  .block--about .block__title__text {
+    padding-left: 0;
+  }
   .block__text--about {
     grid-template-columns: minmax(100px, 300px) minmax(20em, 30em);
     grid-template-rows: auto 1fr;
@@ -677,6 +680,9 @@ svg {
   .portfolio-item {
     border-radius: 0.35rem;
     overflow: hidden;
+  }
+  .colophon {
+    font-size: 0.875rem;
   }
 }
 @media (min-width: 1024px) {
