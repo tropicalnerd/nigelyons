@@ -441,7 +441,7 @@ svg {
 }
 .content {
   display: grid;
-  grid-template-areas: "reel" "about" "portfolio" "contact";
+  grid-template-areas: "reel" "about" "portfolio";
   grid-gap: var(--margin__2);
 }
 .block {
@@ -465,6 +465,7 @@ svg {
 }
 .block--portfolio {
   grid-area: portfolio;
+  margin-bottom: 0;
 }
 .block--contact {
   grid-area: contact;
