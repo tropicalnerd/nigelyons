@@ -43,10 +43,6 @@
     --margin__3: margin__3--mid
     --margin__4: margin__4--mid
 
-  .block--about
-    .block__title__text
-      padding-left: 0
-
   .block__text--about
     grid-template-columns: minmax(100px, 300px) minmax(20em, 30em)
     grid-template-rows: auto 1fr
@@ -81,6 +77,8 @@
   .block--about
     border-radius: 0 0 0 border-radius__default
     // overflow: hidden
+    .block__title__text
+      padding-left: 0
 
   .block__text--about
     grid-template-columns: 100%

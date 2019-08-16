@@ -654,9 +654,6 @@ svg {
     --margin__3: 1rem;
     --margin__4: 0.6rem;
   }
-  .block--about .block__title__text {
-    padding-left: 0;
-  }
   .block__text--about {
     grid-template-columns: minmax(100px, 300px) minmax(20em, 30em);
     grid-template-rows: auto 1fr;
@@ -695,6 +692,9 @@ svg {
   }
   .block--about {
     border-radius: 0 0 0 0.35rem;
+  }
+  .block--about .block__title__text {
+    padding-left: 0;
   }
   .block__text--about {
     grid-template-columns: 100%;
