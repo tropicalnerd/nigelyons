@@ -599,18 +599,19 @@ svg {
 .colophon {
   display: flex;
   justify-content: space-between;
-  margin: var(--margin__1);
+  padding: var(--margin__1);
   font-size: 0.75rem;
-  color: #262627;
+  background-color: #0a0a0a;
+  color: #7f8082;
 }
 .colophon a {
-  color: #d9d9da;
+  color: #ececec;
 }
 .colophon a:hover {
-  color: #d9d9da;
+  color: #ececec;
 }
 .colophon a:visited {
-  color: #d9d9da;
+  color: #ececec;
 }
 @media (min-width: 480px) {
   .masthead {
