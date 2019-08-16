@@ -63,7 +63,7 @@ gulp.task('svgo', () => {
 gulp.task('serve', function () {
   browserSync.init({
     server: site,
-    browser: 'FireFox Developer Edition'
+    browser: 'FireFox'
   });
 
   gulp.watch('src/stylus/*.styl', gulp.series('stylus'));
