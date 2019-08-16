@@ -7,6 +7,12 @@ var browserSync = require('browser-sync').create();
 
 var site = 'public/';
 
+// Copy .htaccess file to dist to force HTTPS
+gulp.task('root', function () {
+  return gulp.src('src/root/.htaccess')
+   .pipe(gulp.dest(site));
+});
+
 // Compile Pug files into HTML
 gulp.task('pug', function () {
   return gulp.src('src/pug/index.pug')
