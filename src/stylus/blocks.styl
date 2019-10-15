@@ -63,11 +63,11 @@
 .block__content
   background-color: color__1
   color: color__5
-  padding: 1em 0
+  padding: margin__1
   height: 100%
 
 .block__text
-  margin: margin__1
+  // margin: margin__1
   h3
     color: color__7
     // margin-top: .75em
@@ -79,7 +79,6 @@
 .block__video 
   position: relative
   padding-bottom: 56.25%
-  padding-top: 25px
   height: 0
   iframe
     position: absolute
@@ -89,8 +88,9 @@
     height: 100%
 
 // Reel
-.block__video--reel  
-  margin: 0 margin__0
+.block__video--reel
+  border-radius: 1rem
+  overflow: hidden
 
 // About
 .block__text--about
@@ -100,16 +100,18 @@
   grid-row-gap: margin__2
   justify-items: center
   justify-content: center
-  img
-    max-width: 300px
-    margin: 0 auto
-    border-radius: 1rem
-    overflow: hidden
+  
   h3
     width: 100% 
     margin: margin__2 0 0
   p
     margin: 0
+
+.block--about__image
+    max-width: 300px
+    margin: 0 auto
+    border-radius: 1rem
+    overflow: hidden
 
 // Portfolio
 .block__content--portfolio

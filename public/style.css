@@ -506,11 +506,8 @@ svg {
 .block__content {
   background-color: #262627;
   color: #a5a6a8;
-  padding: 1em 0;
+  padding: var(--margin__1);
   height: 100%;
-}
-.block__text {
-  margin: var(--margin__1);
 }
 .block__text h3 {
   color: #d9d9da;
@@ -523,7 +520,6 @@ svg {
 .portfolio-item__video {
   position: relative;
   padding-bottom: 56.25%;
-  padding-top: 25px;
   height: 0;
 }
 .block__video iframe,
@@ -535,7 +531,8 @@ svg {
   height: 100%;
 }
 .block__video--reel {
-  margin: 0 var(--margin__0);
+  border-radius: 1rem;
+  overflow: hidden;
 }
 .block__text--about {
   display: grid;
@@ -545,18 +542,18 @@ svg {
   justify-items: center;
   justify-content: center;
 }
-.block__text--about img {
-  max-width: 300px;
-  margin: 0 auto;
-  border-radius: 1rem;
-  overflow: hidden;
-}
 .block__text--about h3 {
   width: 100%;
   margin: var(--margin__2) 0 0;
 }
 .block__text--about p {
   margin: 0;
+}
+.block--about__image {
+  max-width: 300px;
+  margin: 0 auto;
+  border-radius: 1rem;
+  overflow: hidden;
 }
 .block__content--portfolio {
   display: grid;
