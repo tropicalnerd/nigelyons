@@ -1,5 +1,5 @@
 @media (min-width: 480px)
-  .masthead
+  .masthead__container
     grid-template-areas: "logo video-production" "logo service-list" "logo header-contact"
     grid-template-rows: auto auto auto
     grid-template-columns: 1fr auto
@@ -43,15 +43,18 @@
     --margin__3: margin__3--mid
     --margin__4: margin__4--mid
 
-  .block__text--about
+  .block__content--about
     grid-template-columns: minmax(100px, 300px) minmax(20em, 30em)
     grid-template-rows: auto 1fr
     grid-template-areas: "figure heading" "figure text"
-    img
+    
+    picture
       grid-area: figure
+
     h3
       grid-area: heading
       margin-top: 0
+
     p
       grid-area: text
 
@@ -67,7 +70,7 @@
     font-size: .875rem
 
 @media (min-width: 1024px)
-  .content
+  .main__container
     grid-template-areas: "reel about" "portfolio portfolio"
     grid-template-columns:1fr minmax(30%, 40%)
 
@@ -76,14 +79,17 @@
 
   .block--about
     border-radius: 0 0 0 border-radius__default
-    // overflow: hidden
     .block__title__text
       padding-left: 0
 
-  .block__text--about
+  .block__content--about
     grid-template-columns: 100%
     grid-template-areas: "figure" "heading" "text"
     grid-row-gap: 1.5em
+    
     h3
       margin-top: 1.5em
 
+@media (min-width: 1280px) {
+  // .masthead, .main
+  }

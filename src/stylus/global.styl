@@ -4,9 +4,13 @@
   src url(fonts/MicrogrammaD-BoldExte.woff2)
   src url(fonts/MicrogrammaD-BoldExte.woff)
 
+*, *:before, *:after 
+  box-sizing: border-box
+
 body
   font-family: font-family__text
   color: color__0
+  margin: 0;
   background-color: color__4
 
 h1, h2, h3, h4, h5
@@ -35,3 +39,8 @@ svg
 
 .svg-fill--color__8
   fill: color__8
+
+.container
+  max-width: 80rem
+  margin-left: auto
+  margin-right: auto

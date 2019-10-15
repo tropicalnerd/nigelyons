@@ -1,7 +1,8 @@
 footer.colophon
-  - var year = new Date().getFullYear()
-  if year > 2019
-    .copyright &copy;2019-#{year} Nigel Lyons
-  else
-    .copyright &copy;#{year} Nigel Lyons
-  .designed-by Website by #[a(href="https://charlesrobertson.io" title="Charles Robertson Web Design") Charles Robertson]
+  .colophon__container.container
+    - var year = new Date().getFullYear()
+    if year > 2019
+      .copyright &copy;2019-#{year} Nigel Lyons
+    else
+      .copyright &copy;#{year} Nigel Lyons
+    .designed-by Website by #[a(href="https://charlesrobertson.io" title="Charles Robertson Web Design") Charles Robertson]

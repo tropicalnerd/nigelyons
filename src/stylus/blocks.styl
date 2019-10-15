@@ -1,7 +1,8 @@
-.content
-  display: grid
-  grid-template-areas: "reel" "about" "portfolio" // "contact"
-  grid-gap: margin__2
+.main
+  &__container
+    display: grid
+    grid-template-areas: "reel" "about" "portfolio" // "contact"
+    grid-gap: margin__2
 
 .block
   overflow-x: hidden
@@ -66,20 +67,21 @@
   padding: margin__1
   height: 100%
 
-.block__text
+.block__content
   // margin: margin__1
   h3
     color: color__7
     // margin-top: .75em
   p
     color: color__6
-    line-height: 1.35
+    line-height: 1.5
 
 // Video
 .block__video 
   position: relative
   padding-bottom: 56.25%
   height: 0
+  
   iframe
     position: absolute
     top: 0
@@ -93,7 +95,7 @@
   overflow: hidden
 
 // About
-.block__text--about
+.block__content--about
   display: grid
   grid-template-columns: 100%
   grid-column-gap: margin__1
@@ -101,17 +103,19 @@
   justify-items: center
   justify-content: center
   
-  h3
-    width: 100% 
-    margin: margin__2 0 0
-  p
-    margin: 0
-
-.block--about__image
+  picture
     max-width: 300px
+    align-self: start
     margin: 0 auto
     border-radius: 1rem
     overflow: hidden
+
+  h3
+    width: 100% 
+    margin: margin__2 0 0
+
+  p
+    margin: 0
 
 // Portfolio
 .block__content--portfolio
