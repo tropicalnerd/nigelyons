@@ -136,7 +136,8 @@ svg {
   border-bottom: 0.2em solid #ececec;
 }
 .block__title__decoration {
-  width: 100vw;
+  width: 110%;
+  max-width: 80rem;
   display: grid;
   grid-template-columns: 15vw 10vw 5vw auto;
 }
@@ -250,7 +251,7 @@ svg {
 .colophon__container {
   display: flex;
   justify-content: space-between;
-  padding: var(--margin__1) var(--margin__1) var(--margin__0);
+  padding: var(--margin__1) var(--margin__1) calc(var(--margin__1) / 2);
   font-size: 0.75rem;
   background-color: #0a0a0a;
   color: #7f8082;
@@ -303,7 +304,7 @@ svg {
   :root {
     --margin__0: 5vw;
     --margin__1: 5vw;
-    --margin__2: 3vw;
+    --margin__2: 3.75vw;
     --margin__3: 1rem;
     --margin__4: 0.6rem;
   }
@@ -356,5 +357,32 @@ svg {
   }
   .block__content--about h3 {
     margin-top: 1.5em;
+  }
+}
+@media (min-width: 1280px) {
+  .masthead__container {
+    grid-column-gap: 6rem;
+  }
+  .logo {
+    padding-bottom: 1.024rem;
+  }
+  .video-production {
+    font-size: 2.03125rem;
+  }
+  .service-list,
+  .header-contact {
+    font-size: 1.8rem;
+  }
+  .block__title__decoration {
+    grid-template-columns: 12rem 8rem 4rem auto;
+  }
+  .block--reel {
+    border-radius: 0 0.35rem 0.35rem 0.35rem;
+  }
+  .block--about {
+    border-radius: 0 0.35rem 0.35rem 0.35rem;
+  }
+  .block--portfolio {
+    border-radius: 0 0.35rem 0 0;
   }
 }
