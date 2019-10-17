@@ -63,6 +63,7 @@ svg {
   display: grid;
   padding: var(--margin__1);
   height: calc(100vh - 50px);
+  min-height: 116.66vw;
   grid-template-areas: "video-production" "logo" "service-list" "header-contact";
   grid-template-rows: auto auto auto 1fr;
 }
@@ -160,7 +161,7 @@ svg {
 .block__content {
   background-color: #262627;
   color: #a5a6a8;
-  padding: var(--margin__1);
+  padding: calc(1.6 * var(--margin__1))  var(--margin__1);
   height: 100%;
 }
 .block__content h3 {
@@ -214,7 +215,8 @@ svg {
   display: grid;
   grid-gap: var(--margin__2);
   grid-template-columns: 1fr;
-  padding: var(--margin__1) 0;
+  padding-left: var(--margin__0);
+  padding-right: var(--margin__0);
 }
 .portfolio-item {
   background-color: #0a0a0a;
@@ -276,6 +278,7 @@ svg {
     grid-column-gap: 7.5vw;
     justify-content: end;
     height: auto;
+    min-height: initial;
   }
   .logo {
     grid-area: logo;
@@ -327,8 +330,6 @@ svg {
     grid-area: text;
   }
   .block__content--portfolio {
-    padding-left: var(--margin__1);
-    padding-right: var(--margin__1);
     grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr));
   }
   .portfolio-item {
@@ -363,6 +364,11 @@ svg {
   }
 }
 @media (min-width: 1280px) {
+  :root {
+    --margin__0: 4rem;
+    --margin__1: 4rem;
+    --margin__2: 2.4rem;
+  }
   .masthead__container {
     grid-column-gap: 6rem;
   }

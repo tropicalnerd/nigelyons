@@ -65,7 +65,7 @@
 .block__content
   background-color: color__1
   color: color__5
-  padding: margin__1
+  padding: "calc(1.6 * %s) %s" % margin__1 margin__1
   height: 100%
 
 .block__content
@@ -123,7 +123,8 @@
   display: grid
   grid-gap: margin__2
   grid-template-columns: 1fr
-  padding: margin__1 0
+  padding-left: margin__0
+  padding-right: margin__0
 
 .portfolio-item
   background-color: darken(color__0, 50%)

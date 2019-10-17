@@ -6,6 +6,7 @@
     grid-column-gap: 7.5vw
     justify-content: end
     height: auto
+    min-height: initial
     // margin-bottom: 7vw
 
   .logo
@@ -16,10 +17,8 @@
     line-height: 1
     font-size: 2.75vw
     text-align: right
-    // border-bottom: .15em solid color__0
     text-decoration: underline
     text-decoration-line: 2em
-
     margin: 0
 
   .service-list
@@ -59,8 +58,6 @@
       grid-area: text
 
   .block__content--portfolio
-    padding-left: margin__1
-    padding-right: margin__1
     grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr))
   
   .portfolio-item
@@ -91,6 +88,11 @@
       margin-top: 1.5em
 
 @media (min-width: 1280px)
+    :root
+      --margin__0: margin__0--max
+      --margin__1: margin__1--max
+      --margin__2: margin__2--max
+
     .masthead__container 
       grid-column-gap: 6rem
 
