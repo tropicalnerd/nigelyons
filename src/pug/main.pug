@@ -2,13 +2,9 @@ main.main
   .main__container.container
     +c-block('Reel', 'reel')
       div.block__video.block__video--reel
-        //- video(src="https://player.vimeo.com/video/120547617" controls="true")
-        //- <video preload="metadata" style="" src="https://02-lvl3-pdl.vimeocdn.com/01/4109/4/120547617/345224594.mp4?expires=1550716469&amp;token=0398ea3b3d175b0d18c30" controls="true"></video>
         <iframe src="https://player.vimeo.com/video/120547617?color=ffffff&amp;title=0&amp;byline=0&amp;portrait=0" width="740" height="416" frameborder="0" allowfullscreen="allowfullscreen" title="Video Player"></iframe>   
     
     +c-block('About', 'about')
-      //- div.block__text.block__text--about
-      //- img(src='images/n-lyons_headshot_4-27-13_300x214.jpg' alt="Nigel headshot")
       picture.block__text--about__image
         source(type='image/webp' srcset='images/nigel_900.webp 900w, images/nigel_600.webp 600w, images/nigel_300.webp 300w')
         source(type='image/jpg' srcset='images/nigel_900.jpg 900w, images/nigel_600.jpg 600w, images/nigel_300 300w')
@@ -32,4 +28,3 @@ main.main
       +portfolio-item('The Importance of S/4HANA', 'Filmed', 'February 25, 2015', 'Corporate')
         <iframe src="https://www.youtube.com/embed/7S4-_--ZvkE?rel=0" allowfullscreen="allowfullscreen" width="740" height="416" frameborder="0" title="Video Player"></iframe>
       
-    //- +c-block('Contact', 'contact')
