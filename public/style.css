@@ -217,7 +217,7 @@ svg {
   padding: var(--margin__1) 0;
 }
 .portfolio-item {
-  background-color: #000;
+  background-color: #0a0a0a;
   display: grid;
   grid-template-rows: auto 1fr auto;
   padding-bottom: 0.5%;
@@ -265,6 +265,9 @@ svg {
 .colophon__container a:visited {
   color: #ececec;
 }
+.designed-by a {
+  text-decoration: underline;
+}
 @media (min-width: 480px) {
   .masthead__container {
     grid-template-areas: "logo video-production" "logo service-list" "logo header-contact";
@@ -304,7 +307,7 @@ svg {
   :root {
     --margin__0: 5vw;
     --margin__1: 5vw;
-    --margin__2: 3.75vw;
+    --margin__2: 3vw;
     --margin__3: 1rem;
     --margin__4: 0.6rem;
   }
@@ -384,5 +387,8 @@ svg {
   }
   .block--portfolio {
     border-radius: 0 0.35rem 0 0;
+  }
+  .block__title__text {
+    padding-left: 0;
   }
 }
