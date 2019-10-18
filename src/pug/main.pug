@@ -2,7 +2,15 @@ main.main
   .main__container.container
     +c-block('Reel', 'reel')
       div.block__video.block__video--reel
-        <iframe src="https://player.vimeo.com/video/120547617?color=ffffff&amp;title=0&amp;byline=0&amp;portrait=0" width="740" height="416" frameborder="0" allowfullscreen="allowfullscreen" title="Video Player"></iframe>   
+        //- <video preload="none" tabindex="-1" style="" src="blob:https://player.vimeo.com/5810eb8f-8f0d-3f44-ae5d-c390c870b948"></video>
+        video(
+          id="reel"
+          class="video-js"
+          width="740" height="416"
+          data-setup='{ "techOrder": ["vimeo"], "sources": [{ "type": "video/vimeo", "src": "https://vimeo.com/120547617"}], "vimeo": { "color": "#ffffff"} }'
+        )
+  
+        //- <iframe src="https://player.vimeo.com/video/120547617?color=ffffff&amp;title=0&amp;byline=0&amp;portrait=0" width="740" height="416" frameborder="0" allowfullscreen="allowfullscreen" title="Video Player"></iframe>   
     
     +c-block('About', 'about')
       picture.block__text--about__image
@@ -27,4 +35,6 @@ main.main
       
       +portfolio-item('The Importance of S/4HANA', 'Filmed', 'February 25, 2015', 'Corporate')
         <iframe src="https://www.youtube.com/embed/7S4-_--ZvkE?rel=0" allowfullscreen="allowfullscreen" width="740" height="416" frameborder="0" title="Video Player"></iframe>
-      
+
+script(src='video-js/video.min.js')
+script(src='video-js/videojs-vimeo.min.js')      

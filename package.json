@@ -10,7 +10,8 @@
   "license": "ISC",
   "description": "A simple, static, one page site made with Node, Pug, and Gulp",
   "dependencies": {
-    "pug": "^2.0.3"
+    "pug": "^2.0.3",
+    "video.js": "^7.6.5"
   },
   "devDependencies": {
     "browser-sync": "^2.26.7",
