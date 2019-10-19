@@ -62,12 +62,12 @@ gulp.task('svgo', () => {
 // // browserSync and file watching
 gulp.task('serve', function () {
   browserSync.init({
-    server: site,
-    browser: 'FireFox'
+    server: site
+    // browser: 'FireFox'
   });
 
   gulp.watch('src/stylus/*.styl', gulp.series('stylus'));
-  gulp.watch('src/pug/*.pug', gulp.series('pug'));
+  gulp.watch(['src/pug/*.pug', 'src/js/*.js'], gulp.series('pug'));
   gulp.watch('src/images/*.svg', gulp.series('svgo', 'pug'));
   gulp.watch(site + '*.html').on('change', browserSync.reload);
 });
