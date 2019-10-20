@@ -3,13 +3,22 @@ main.main
     +c-block('Reel', 'reel')
       //- div.block__video-wrap.block__video-wrap--reel
         //- <video preload="none" tabindex="-1" style="" src="blob:https://player.vimeo.com/5810eb8f-8f0d-3f44-ae5d-c390c870b948"></video>
-      video(
-        class="block__video block__video--reel"
-        width="740" height="416"
-        controls)
-        source(src='video/Nigel Reel 2015.mp4' type='video/mp4')
+      //- video(
+      //-   class="block__video block__video--reel"
+      //-   width="740" height="416"
+      //-   controls)
+      //-   source(src='video/Nigel Reel 2015.mp4' type='video/mp4')
         //- <iframe src="https://player.vimeo.com/video/120547617?color=ffffff&amp;title=0&amp;byline=0&amp;portrait=0" width="740" height="416" frameborder="0" allowfullscreen="allowfullscreen" title="Video Player"></iframe>   
-    
+
+      .player
+        video.player__video.viewer(src='video/Nigel Reel 2015.mp4')
+        .player__controls
+          .progress
+            .progress__filled
+          button.player__button.toggle(title='Toggle Play') ►
+          input(type='range' name='volume' class='player__slider' min=0 max=1 step='0.05' value='1')
+          
+
     +c-block('About', 'about')
       picture.block__text--about__image
         source(type='image/webp' srcset='images/nigel_900.webp 900w, images/nigel_600.webp 600w, images/nigel_300.webp 300w')
