@@ -18,6 +18,18 @@ margin__3--mid = 1rem
 margin__4--min = .6 * margin__3--min
 margin__4--mid = .6 * margin__3--mid
 
+// Colors
+color__base = (#7f8082)
+color__0 = darken(color__base, 85%)
+color__1 = darken(color__base, 70%)
+color__2 = darken(color__base, 50%)
+color__3 = darken(color__base, 30%)
+color__4 = color__base
+color__5 = lighten(color__base, 30%)
+color__6 = lighten(color__base, 50%)
+color__7 = lighten(color__base, 70%)
+color__8 = lighten(color__base, 85%)
+
 // Variables
 :root
   --margin__0: margin__0--min
@@ -25,6 +37,17 @@ margin__4--mid = .6 * margin__3--mid
   --margin__2: margin__2--min
   --margin__3: margin__3--min
   --margin__4: margin__4--min
+
+  --color__0: color__0
+  --color__1: color__1
+  --color__2: color__2
+  --color__3: color__3
+  --color__4: color__4
+  --color__5: color__5
+  --color__6: color__6
+  --color__7: color__7
+  --color__8: color__8
+  --color__9: color__9
 
 // Variable rename
 margin__0 = var(--margin__0)
@@ -42,17 +65,9 @@ font-size__small = .875rem
 
 border-radius__default = .35rem
 
-// Colors
-color__base = (#7f8082)
-color__0 = darken(color__base, 85%)
-color__1 = darken(color__base, 70%)
-color__2 = darken(color__base, 50%)
-color__3 = darken(color__base, 30%)
-color__4 = color__base
-color__5 = lighten(color__base, 30%)
-color__6 = lighten(color__base, 50%)
-color__7 = lighten(color__base, 70%)
-color__8 = lighten(color__base, 85%)
+
+
+
 
 // Mixins
 anchor(link-color, link-color--hover, link-color--visited)
