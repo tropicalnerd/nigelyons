@@ -13,7 +13,7 @@
   --color__6: #bfbfc0;
   --color__7: #d9d9da;
   --color__8: #ececec;
-  --color__9: color__9;
+  --color__9: #fff;
 }
 @font-face {
   font-family: Microgramma D Extended;
@@ -348,12 +348,15 @@ svg {
 }
 .player__button--play-toggle__inner {
   width: 3.75rem;
-  padding: 0.75rem 0.75rem 0.4375rem 1rem;
+  padding: 0.75rem 1rem 0.75rem 1rem;
   background-color: #595a5b;
 }
 .player__button--play-toggle svg {
   width: 100%;
   height: auto;
+}
+.player__button:hover {
+  color: #fff;
 }
 .player__time {
   font-size: 0.875rem;
