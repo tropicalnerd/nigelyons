@@ -2,27 +2,81 @@
     position: relative
 
     &__video
+        display: block
         width: 100%
 
     &__controls
         display: flex
+        align-items: flex-end
         position: absolute
         bottom: 0
         left: 0
         width: 100%
+        overflow: hidden
+        color: color__8
+        z-index: 1
 
     &__controls-wrap
         display: flex
         align-items: center
         justify-content: space-between
         width: 100%
+        height: min-content
+        padding: (5 / 16)rem (7 / 16)rem
         background-color: color__3
+        z-index: 2
 
     &__button
         background: none
         border: none
         color: color__8
-        padding: 5px 7px
+        cursor: pointer
+        
+        &--play-toggle
+            flex-shrink: 0
+            // overflow: hidden
+            padding: 0
+            z-index: 2
 
-    &__progress
+            &__inner
+                width: 3.75rem
+                padding: .75rem .75rem (7 / 16)rem 1rem
+                background-color: color__3
+            
+            svg
+                width: 100%
+                height: auto
+
+    &__time
+        font-size: .875rem
+        line-height: 1
+        font-weight: 300
+        padding: 0 .125em
+        margin-right: .5rem
+
+    &__slider
+        margin-left: .5rem
+        margin-right: 1rem
+
+    &__slider--progress
         flex-grow: 1
+
+    &__slider-input
+        overflow: hidden
+        position: absolute
+        width: 1px
+        height: 1px
+        opacity: 0
+        margin: 0
+        padding: 0
+
+    &__slider--volume
+        width: 4rem;
+
+    &__decoration
+        width: 4.75rem
+        height: 100%
+        position: absolute
+        background-color: color__3
+        transform: skew(30deg)
+        

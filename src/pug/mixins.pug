@@ -21,3 +21,10 @@ mixin portfolio-item(title, desc, date, genre)
       .portfolio-item__desc #{desc}
       .portfolio-item__date #{date}
       .portfolio-item__genre #{genre}
+
+mixin player__slider(slug)
+  .player__slider(class='player__slider--' + slug)
+    block
+    .range-slider(class='range-slider--' + slug)
+      .range-slider__fill(class='range-slider__fill--' + slug)
+      .range-slider__handle(class='range-slider__handle--' + slug)

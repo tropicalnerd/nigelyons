@@ -13,6 +13,13 @@ gulp.task('root', function () {
     .pipe(gulp.dest(site));
 });
 
+// Copy .js files
+gulp.task('js', function() {
+  return gulp.src('src/js/*.js')
+    .pipe(gulp.dest(site + '/js'));
+    browserSync.reload();
+});
+
 // Compile Pug files into HTML
 gulp.task('pug', function () {
   return gulp.src('src/pug/index.pug')
@@ -66,8 +73,9 @@ gulp.task('serve', function () {
     // browser: 'FireFox'
   });
 
+  gulp.watch('src/js/*.js', gulp.series('js'));
   gulp.watch('src/stylus/*.styl', gulp.series('stylus'));
-  gulp.watch(['src/pug/*.pug', 'src/js/*.js'], gulp.series('pug'));
+  gulp.watch(['src/pug/*.pug'], gulp.series('pug'));
   gulp.watch('src/images/*.svg', gulp.series('svgo', 'pug'));
   gulp.watch(site + '*.html').on('change', browserSync.reload);
 });
