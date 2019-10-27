@@ -11,7 +11,12 @@ main.main
         //- <iframe src="https://player.vimeo.com/video/120547617?color=ffffff&amp;title=0&amp;byline=0&amp;portrait=0" width="740" height="416" frameborder="0" allowfullscreen="allowfullscreen" title="Video Player"></iframe>   
 
       .player
-        video.player__video(src='video/Nigel Reel 2015.mp4')
+        video.player__video
+          source(src='video/nigel-reel-2015_480.mp4' type='video/mp4')
+          source(src='video/nigel-reel-2015_640.mp4' type='video/mp4')
+          source(src='video/nigel-reel-2015_1280.mp4' type='video/mp4')
+          source(src='video/nigel-reel-2015_1920.mp4' type='video/mp4')
+
         .player__controls
           button.player__button.player__play-toggle(title='Toggle Play')
             .player__play-toggle__inner

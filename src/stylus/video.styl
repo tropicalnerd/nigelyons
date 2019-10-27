@@ -3,6 +3,9 @@
     border-radius: border-radius__default
     overflow: hidden
 
+    &:hover &__controls
+        transform: translateY(0);
+
     &__video
         display: block
         width: 100%
@@ -17,6 +20,10 @@
         overflow: hidden
         color: color__8
         z-index: 1
+        transform: translateY(44px);
+        transition: transform .3s ease;
+
+       
 
     &__controls-wrap
         display: flex
@@ -57,7 +64,7 @@
         line-height: 1
         font-weight: 300
         padding: 0 .125em
-        margin-right: .5rem
+        margin-right: .25rem
         font-variant-numeric: tabular-nums;
 
     &__progress-range
@@ -67,7 +74,7 @@
 
     &__volume-range
         width: 4rem
-        margin-left: .5rem
+        margin-left: .25rem
         margin-right: 1rem
 
     &__decoration

@@ -321,6 +321,9 @@ svg {
   border-radius: 0.35rem;
   overflow: hidden;
 }
+.player:hover .player__controls {
+  transform: translateY(0);
+}
 .player__video {
   display: block;
   width: 100%;
@@ -335,6 +338,8 @@ svg {
   overflow: hidden;
   color: #ececec;
   z-index: 1;
+  transform: translateY(44px);
+  transition: transform 0.3s ease;
 }
 .player__controls-wrap {
   display: flex;
@@ -374,7 +379,7 @@ svg {
   line-height: 1;
   font-weight: 300;
   padding: 0 0.125em;
-  margin-right: 0.5rem;
+  margin-right: 0.25rem;
   font-variant-numeric: tabular-nums;
 }
 .player__progress-range {
@@ -384,7 +389,7 @@ svg {
 }
 .player__volume-range {
   width: 4rem;
-  margin-left: 0.5rem;
+  margin-left: 0.25rem;
   margin-right: 1rem;
 }
 .player__decoration {
