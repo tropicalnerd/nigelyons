@@ -47,11 +47,21 @@ svg
   margin-right: auto
 
 .range-slider
-  position: relative
-  width: 100%
-  height: 4px
-  background-color: color__1
-  z-index: 3
+  &__input
+    overflow: hidden
+    position: absolute
+    width: 1px
+    height: 1px
+    opacity: 0
+    margin: 0
+    padding: 0
+
+  &__wrap
+    position: relative
+    width: 100%
+    height: 4px
+    background-color: color__1
+    z-index: 3
   
   &__fill
     position: absolute
