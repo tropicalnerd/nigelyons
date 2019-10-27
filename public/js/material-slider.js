@@ -1,10 +1,3 @@
-$(document).ready(function() {
-
-  $('.rkmd-slider').rkmd_rangeSlider();
-  change_slider_color();
-
-});
-
 /* Range Slider Function */
 (function($) {
 
@@ -158,27 +151,3 @@ $(document).ready(function() {
 }(jQuery));
 
 
-/* Change Slider Color */
-function change_slider_color() {
-  $('.color-box .show-box').on('click', function() {
-    $(".color-box").toggleClass("open");
-  });
-
-  $('.colors-list a').on('click', function() {
-    var curr_color = $('main').data('slider-color');
-    var color      = $(this).data('slider-color');
-    var new_colot  = 'slider-' + color;
-
-    $('.rkmd-slider').each(function(i, v) {
-      var findColor = $(this).hasClass(curr_color);
-
-      if(findColor) {
-        $(this).removeClass(curr_color);
-        $(this).addClass(new_colot);
-      }
-
-      $('main').data('slider-color', new_colot);
-
-    });
-  });
-}

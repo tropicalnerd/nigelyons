@@ -8,4 +8,8 @@
 
 console.log('Init range-sliders')
 const sliders = document.querySelectorAll('.range-slider');
-console.log(sliders)
+
+sliders.forEach(function(slider) {
+    sliderFill = slider.querySelector('.range-slider__fill');
+    
+});
