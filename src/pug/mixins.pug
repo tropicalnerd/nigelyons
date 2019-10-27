@@ -23,8 +23,9 @@ mixin portfolio-item(title, desc, date, genre)
       .portfolio-item__genre #{genre}
 
 mixin range-slider(slug)
-  .range-slider(class='player__' + slug)
-    block
-    .range-slider__wrap(class='range-slider__wrap--' + slug)
-      .range-slider__fill(class='range-slider__fill--' + slug)
-      .range-slider__handle(class='range-slider__handle--' + slug)
+  block
+  //- .range-slider(class='player__' + slug)
+  //-   block
+  //-   .range-slider__wrap(class='range-slider__wrap--' + slug)
+  //-     .range-slider__fill(class='range-slider__fill--' + slug)
+  //-     .range-slider__handle(class='range-slider__handle--' + slug)

@@ -76,7 +76,7 @@ gulp.task('serve', function () {
   gulp.watch('src/stylus/*.styl', gulp.series('stylus'));
   gulp.watch(['src/pug/*.pug'], gulp.series('pug'));
   gulp.watch('src/images/*.svg', gulp.series('svgo', 'pug'));
-  gulp.watch([site + 'index.html', site + '/js/*.js']).on('change', browserSync.reload);
+  gulp.watch([site + 'index.html', site + 'js/*.js']).on('change', browserSync.reload);
 });
 
 gulp.task('default', gulp.series('serve'));

@@ -1,5 +1,7 @@
 .player
     position: relative
+    border-radius: border-radius__default
+    overflow: hidden
 
     &__video
         display: block
@@ -32,37 +34,38 @@
         color: color__8
         cursor: pointer
         
-        &--play-toggle
-            flex-shrink: 0
-            // overflow: hidden
-            padding: 0
-            z-index: 2
+    &__play-toggle
+        flex-shrink: 0
+        // overflow: hidden
+        padding: 0
+        z-index: 2
 
-            &__inner
-                width: 3.75rem
-                padding: .75rem 1rem .75rem 1rem
-                background-color: color__3
-            
-            svg
-                width: 100%
-                height: auto
+        &__inner
+            width: 3.75rem
+            padding: .75rem 1rem .75rem 1rem
+            background-color: color__3
+        
+        svg
+            width: 100%
+            height: auto
         
         &:hover
             color: color__9
 
-    &__time
+    &__progress-time
         font-size: .875rem
         line-height: 1
         font-weight: 300
         padding: 0 .125em
         margin-right: .5rem
+        font-variant-numeric: tabular-nums;
 
-    &__progress
+    &__progress-range
         flex-grow: 1
         margin-left: .5rem
         margin-right: 1rem
 
-    &__volume
+    &__volume-range
         width: 4rem
         margin-left: .5rem
         margin-right: 1rem

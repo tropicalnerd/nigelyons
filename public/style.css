@@ -318,6 +318,8 @@ svg {
 }
 .player {
   position: relative;
+  border-radius: 0.35rem;
+  overflow: hidden;
 }
 .player__video {
   display: block;
@@ -350,36 +352,37 @@ svg {
   color: #ececec;
   cursor: pointer;
 }
-.player__button--play-toggle {
+.player__play-toggle {
   flex-shrink: 0;
   padding: 0;
   z-index: 2;
 }
-.player__button--play-toggle__inner {
+.player__play-toggle__inner {
   width: 3.75rem;
   padding: 0.75rem 1rem 0.75rem 1rem;
   background-color: #595a5b;
 }
-.player__button--play-toggle svg {
+.player__play-toggle svg {
   width: 100%;
   height: auto;
 }
-.player__button:hover {
+.player__play-toggle:hover {
   color: #fff;
 }
-.player__time {
+.player__progress-time {
   font-size: 0.875rem;
   line-height: 1;
   font-weight: 300;
   padding: 0 0.125em;
   margin-right: 0.5rem;
+  font-variant-numeric: tabular-nums;
 }
-.player__progress {
+.player__progress-range {
   flex-grow: 1;
   margin-left: 0.5rem;
   margin-right: 1rem;
 }
-.player__volume {
+.player__volume-range {
   width: 4rem;
   margin-left: 0.5rem;
   margin-right: 1rem;
