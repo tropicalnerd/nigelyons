@@ -7,4 +7,5 @@
 </div> */
 
 console.log('Init range-sliders')
-const sliders = document.querySelectorAll('range-slider');
+const sliders = document.querySelectorAll('.range-slider');
+console.log(sliders)
