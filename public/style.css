@@ -347,7 +347,7 @@ svg {
   justify-content: space-between;
   width: 100%;
   height: min-content;
-  padding: 0.3125rem 0.4375rem;
+  padding: 0.3125rem 0.4375rem 0.3125rem 0.75rem;
   background-color: #595a5b;
   z-index: 2;
 }
@@ -365,7 +365,6 @@ svg {
 .player__play-toggle__inner {
   width: 3.75rem;
   padding: 0.75rem 1rem 0.75rem 1rem;
-  background-color: #595a5b;
 }
 .player__play-toggle svg {
   width: 100%;
@@ -384,7 +383,7 @@ svg {
 }
 .player__progress-range {
   flex-grow: 1;
-  margin-left: 0.5rem;
+  margin-left: 0.25rem;
   margin-right: 1rem;
 }
 .player__volume-range {
@@ -393,11 +392,11 @@ svg {
   margin-right: 1rem;
 }
 .player__decoration {
-  width: 4.75rem;
+  width: 5rem;
   height: 100%;
   position: absolute;
   background-color: #595a5b;
-  transform: skew(30deg);
+  transform: skew(30deg) translateX(-0.75rem);
 }
 @media (min-width: 480px) {
   .masthead__container {

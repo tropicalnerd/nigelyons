@@ -41,20 +41,21 @@ function stringPadLeft(string, pad, length) {
 function formatTime(time) {
   const minutes = Math.floor(time / 60);
   const seconds = Math.floor(time - minutes * 60);
-  // return minutes + ':' + seconds;
   return stringPadLeft(minutes, '0', 2) + ':' + stringPadLeft(seconds, '0', 2);
 }
 
 function togglePlay() {
   if (video.paused) {
     video.play();
+    playing = true;
   } else {
     video.pause();
+    playing = false;
   }
 }
 
 function updatePlayToggle() {
-  const icon = this.paused ? playIcon : pauseIcon;
+  const icon = this.paused && mousedown === false ? playIcon : pauseIcon;
   playToggleIcon.innerHTML = icon;
 }
 
@@ -66,11 +67,16 @@ function updateProgress() {
   progressRange.value = percent;
   progressTimeCurrent.textContent = formatTime(timeCurrent);
   progressTimeRemaining.textContent = formatTime(timeRemaining);
+  console.log(progressRange.value);
 }
 
-function scrub(e) {
-  const scrubTime = (e.offsetX / progressRange.offsetWidth) * video.duration;
-  video.currentTime = scrubTime;
+// function scrub(e) {
+//   const scrubTime = (e.offsetX / progressRange.offsetWidth) * video.duration;
+//   video.currentTime = scrubTime;
+// }
+
+function scrub() {
+  video.currentTime = progressRange.value * video.duration;
 }
 
 function toggleMuted() {
@@ -96,8 +102,9 @@ function updateVolume() {
 
 /* Hook up the event listeners */
 let mousedown = false;
+let playing = false;
 
-video.addEventListener('canplay', updateProgress);
+video.addEventListener('canplay', () => { updateProgress(); updateAudioControls(); });
 video.addEventListener('click', togglePlay);
 video.addEventListener('play', updatePlayToggle);
 video.addEventListener('pause', updatePlayToggle);
@@ -105,12 +112,19 @@ video.addEventListener('timeupdate', updateProgress);
 
 playToggle.addEventListener('click', togglePlay);
 
-progressRange.addEventListener('click', scrub);
-progressRange.addEventListener('mousemove', e => mousedown && scrub(e));
-progressRange.addEventListener('mousedown', () => (mousedown = true));
-progressRange.addEventListener('mouseup', () => (mousedown = false));
+progressRange.addEventListener('input', scrub);
+// progressRange.addEventListener('click', scrub);
+// progressRange.addEventListener('mousemove', e => mousedown && scrub(e));
+progressRange.addEventListener('mousedown', () => {
+  mousedown = true;
+  if (playing === true) { video.pause(); }
+});
+progressRange.addEventListener('mouseup', () => {
+  mousedown = false;
+  if (playing === true) { video.play(); }
+});
 
 audioToggle.addEventListener('click', toggleMuted);
-volumeRange.addEventListener('change', updateVolume);
+volumeRange.addEventListener('input', updateVolume);
 
 fullscreenToggle.addEventListener('click', () => video.requestFullscreen());
