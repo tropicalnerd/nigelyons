@@ -1,11 +1,12 @@
 /* eslint-disable space-before-function-paren */
 /* eslint semi: "error" */
 
-console.log('Init video script');
-
 /* Get our Elements */
 const player = document.querySelector('.player');
 const video = player.querySelector('.player__video');
+const sourceNodes = video.querySelectorAll('source');
+const sources = new Array(4);
+sources[0] = { quality: 240, src: 'http://yadadada.mp4' };
 
 const playToggle = player.querySelector('.player__play-toggle');
 const playToggleIcon = playToggle.querySelector('svg');
@@ -60,13 +61,11 @@ function updatePlayToggle() {
 }
 
 function updateProgress() {
-  const percent = video.currentTime / video.duration;
   const timeCurrent = Math.floor(video.currentTime);
   const timeRemaining = video.duration - timeCurrent;
-  progressRange.value = percent;
+  progressRange.value = video.currentTime / video.duration;
   progressTimeCurrent.textContent = formatTime(timeCurrent);
   progressTimeRemaining.textContent = formatTime(timeRemaining);
-  console.log(progressRange.value);
 }
 
 function scrub() {
@@ -94,11 +93,28 @@ function updateVolume() {
   updateAudioControls();
 }
 
+function qualityAutoSelect() {
+  const videoHeight = video.offsetHeight;
+  const sourceHeights = Array.from(sourceNodes).map(source => Number(source.getAttribute('data-quality'))).sort((a, b) => a - b);
+  let selectedQuality;
+  for (let i = 0; i < sourceHeights.length; i++) {
+    if (videoHeight <= sourceHeights[i]) {
+      selectedQuality = sourceHeights[i];
+      break;
+    }
+  }
+  return selectedQuality;
+}
+
+function updateSource() {
+
+}
+
 /* Hook up the event listeners */
 let mousedown = false;
 let playing = false;
 
-video.addEventListener('canplay', () => { updateProgress(); updateAudioControls(); });
+video.addEventListener('loadedmetadata', () => { updateProgress(); updateAudioControls(); qualityAutoSelect(); });
 video.addEventListener('click', togglePlay);
 video.addEventListener('play', updatePlayToggle);
 video.addEventListener('pause', updatePlayToggle);
