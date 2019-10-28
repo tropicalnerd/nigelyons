@@ -61,7 +61,6 @@ function updatePlayToggle() {
 
 function updateProgress() {
   const percent = video.currentTime / video.duration;
-  // const timeDuration = Math.floor(video.duration);
   const timeCurrent = Math.floor(video.currentTime);
   const timeRemaining = video.duration - timeCurrent;
   progressRange.value = percent;
@@ -69,11 +68,6 @@ function updateProgress() {
   progressTimeRemaining.textContent = formatTime(timeRemaining);
   console.log(progressRange.value);
 }
-
-// function scrub(e) {
-//   const scrubTime = (e.offsetX / progressRange.offsetWidth) * video.duration;
-//   video.currentTime = scrubTime;
-// }
 
 function scrub() {
   video.currentTime = progressRange.value * video.duration;
@@ -113,8 +107,6 @@ video.addEventListener('timeupdate', updateProgress);
 playToggle.addEventListener('click', togglePlay);
 
 progressRange.addEventListener('input', scrub);
-// progressRange.addEventListener('click', scrub);
-// progressRange.addEventListener('mousemove', e => mousedown && scrub(e));
 progressRange.addEventListener('mousedown', () => {
   mousedown = true;
   if (playing === true) { video.pause(); }
