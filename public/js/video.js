@@ -5,8 +5,15 @@
 const player = document.querySelector('.player');
 const video = player.querySelector('.player__video');
 const sourceNodes = video.querySelectorAll('source');
-const sources = new Array(4);
-sources[0] = { quality: 240, src: 'http://yadadada.mp4' };
+const sources = new Array(sourceNodes.length);
+for (let i = 0; i < sources.length; i++) {
+  sources[i] = {
+    type: sourceNodes[i].getAttribute('type'),
+    src: sourceNodes[i].getAttribute('src'),
+    quality: Number(sourceNodes[i].getAttribute('data-quality'))
+  };
+}
+sources.sort(function(a, b) { return a.quality - b.quality; });
 
 const playToggle = player.querySelector('.player__play-toggle');
 const playToggleIcon = playToggle.querySelector('svg');
@@ -93,28 +100,54 @@ function updateVolume() {
   updateAudioControls();
 }
 
-function qualityAutoSelect() {
+function autoQuality() {
   const videoHeight = video.offsetHeight;
-  const sourceHeights = Array.from(sourceNodes).map(source => Number(source.getAttribute('data-quality'))).sort((a, b) => a - b);
-  let selectedQuality;
-  for (let i = 0; i < sourceHeights.length; i++) {
-    if (videoHeight <= sourceHeights[i]) {
-      selectedQuality = sourceHeights[i];
+  let bestQuality;
+  for (let i = 0; i < sources.length; i++) {
+    if (videoHeight <= sources[i].quality) {
+      bestQuality = sources[i].quality;
       break;
     }
   }
-  return selectedQuality;
+  return bestQuality;
 }
 
-function updateSource() {
-
+function updateSource(bestQuality) {
+  const currentSrc = new URL(video.currentSrc);
+  const index = sources.findIndex(source => source.quality === bestQuality);
+  const newSrc = new URL(sources[index].src, currentSrc.origin);
+  if (currentSrc.href !== newSrc.href) {
+    const currentTime = video.currentTime;
+    video.src = newSrc.href;
+    video.currentTime = currentTime;
+    if (playing === true) { video.play(); }
+  }
 }
+
+function debounce(func, wait, immediate) {
+  var timeout;
+  return function() {
+    var context = this; var args = arguments;
+    var later = function() {
+      timeout = null;
+      if (!immediate) func.apply(context, args);
+    };
+    var callNow = immediate && !timeout;
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+    if (callNow) func.apply(context, args);
+  };
+};
+
+var checkSource = debounce(function() {
+  updateSource(autoQuality());
+}, 250);
 
 /* Hook up the event listeners */
 let mousedown = false;
 let playing = false;
 
-video.addEventListener('loadedmetadata', () => { updateProgress(); updateAudioControls(); qualityAutoSelect(); });
+video.addEventListener('loadedmetadata', () => { updateProgress(); updateAudioControls(); });
 video.addEventListener('click', togglePlay);
 video.addEventListener('play', updatePlayToggle);
 video.addEventListener('pause', updatePlayToggle);
@@ -136,3 +169,7 @@ audioToggle.addEventListener('click', toggleMuted);
 volumeRange.addEventListener('input', updateVolume);
 
 fullscreenToggle.addEventListener('click', () => video.requestFullscreen());
+
+/* Execute */
+video.addEventListener('loadedmetadata', () => updateSource(autoQuality()), { once: true });
+window.addEventListener('resize', checkSource);
