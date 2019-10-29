@@ -106,10 +106,14 @@ function updateVolume() {
 }
 
 function toggleMenu() {
-  if (qualityMenu.getAttribute('hidden') === null) {
-    qualityMenu.setAttribute('hidden', '');
+  if (qualityMenu.hidden === false) {
+    qualityMenu.hidden = true;
+    qualityMenu.className += ' hidden';
+    qualityToggle.setAttribute('aria-expanded', 'false');
   } else {
-    qualityMenu.removeAttribute('hidden');
+    qualityMenu.hidden = false;
+    qualityMenu.classList.remove('hidden');
+    qualityToggle.setAttribute('aria-expanded', 'true')
   }
 }
 

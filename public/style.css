@@ -70,43 +70,8 @@ svg {
   margin-left: auto;
   margin-right: auto;
 }
-.range-slider__input {
-  overflow: hidden;
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  opacity: 0;
-  margin: 0;
-  padding: 0;
-}
-.range-slider__wrap {
-  position: relative;
-  width: 100%;
-  height: 4px;
-  background-color: #262627;
-  z-index: 3;
-}
-.range-slider__fill {
-  position: absolute;
-  width: 0;
-  height: 100%;
-  user-select: none;
-  z-index: 4;
-  background-color: #ececec;
-}
-.range-slider__handle {
-  cursor: pointer;
-  position: absolute;
-  top: -5.5px;
-  left: 0;
-  width: 15px;
-  height: 15px;
-  margin-left: -8px;
-  border-radius: 50%;
-  transition: all 0.2s ease;
-  user-select: none;
-  z-index: 5;
-  background-color: #ececec;
+.hidden {
+  visibility: hidden;
 }
 .masthead__container {
   display: grid;
@@ -344,9 +309,10 @@ svg {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: relative;
   width: 100%;
   height: min-content;
-  padding: 0.3125rem 0.4375rem 0.3125rem 0.75rem;
+  padding: 0.3125rem 0.4375rem 0.3125rem 0.5rem;
   background-color: #595a5b;
   z-index: 2;
 }
@@ -355,6 +321,7 @@ svg {
   border: none;
   color: #ececec;
   cursor: pointer;
+  padding: 0.25rem 0.375rem;
 }
 .player__play-toggle {
   flex-shrink: 0;
@@ -363,7 +330,7 @@ svg {
 }
 .player__play-toggle__inner {
   width: 3.75rem;
-  padding: 0.75rem 1rem 0.75rem 1rem;
+  padding: 0.875rem 1rem 0.875rem 1rem;
 }
 .player__play-toggle svg {
   width: 100%;
@@ -373,6 +340,7 @@ svg {
   color: #fff;
 }
 .player__progress-time {
+  width: max-content;
   font-size: 0.875rem;
   line-height: 1;
   font-weight: 300;
@@ -381,15 +349,16 @@ svg {
   font-variant-numeric: tabular-nums;
 }
 .player__progress-range {
-  width: 3rem;
-  flex-grow: 1;
-  margin-left: 0.25rem;
-  margin-right: 1rem;
+  width: 4rem;
+  flex-grow: 5;
+  margin-left: 0.375rem;
+  margin-right: 0.5rem;
 }
 .player__volume-range {
-  width: 4rem;
+  width: 2rem;
+  flex-grow: 1;
   margin-left: 0.25rem;
-  margin-right: 1rem;
+  margin-right: 0.5rem;
 }
 .player__decoration {
   width: 5rem;
@@ -402,8 +371,8 @@ svg {
   display: inline-block;
   position: absolute;
   right: 0;
-  bottom: 0;
-  padding: 1rem 1.5rem 2.75rem;
+  bottom: 100%;
+  padding: 1rem 1.5rem;
   font-size: 0.875rem;
   color: #d9d9da;
   background-color: #3f4041;
