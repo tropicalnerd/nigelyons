@@ -320,13 +320,14 @@ svg {
   position: relative;
   border-radius: 0.35rem;
   overflow: hidden;
-}
-.player:hover .player__controls {
-  transform: translateY(0);
+  height: 0;
+  padding-bottom: 56.25%;
 }
 .player__video {
   display: block;
+  position: absolute;
   width: 100%;
+  height: auto;
 }
 .player__controls {
   display: flex;
