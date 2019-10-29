@@ -24,10 +24,10 @@ const pauseIcon =
   '<rect width="10" height="20" x="18" />';
 
 const progressTimeCurrent = player.querySelector(
-  '.player__progress-time-current'
+  '.player__time-current'
 );
 const progressTimeRemaining = player.querySelector(
-  '.player__progress-time-remaining'
+  '.player__time-remaining'
 );
 const progressRange = player.querySelector('.player__progress-range');
 const audioToggle = player.querySelector('.player__audio-toggle');
@@ -105,14 +105,20 @@ function updateVolume() {
   updateAudioControls();
 }
 
+function hideMenu() {
+  qualityMenu.className += ' hidden';
+    setTimeout(() => {
+      qualityMenu.hidden = true;
+      qualityToggle.setAttribute('aria-expanded', 'false');
+    }, 200);
+}
+
 function toggleMenu() {
   if (qualityMenu.hidden === false) {
-    qualityMenu.hidden = true;
-    qualityMenu.className += ' hidden';
-    qualityToggle.setAttribute('aria-expanded', 'false');
+    hideMenu();
   } else {
     qualityMenu.hidden = false;
-    qualityMenu.classList.remove('hidden');
+    setTimeout(() => qualityMenu.classList.remove('hidden'), 5);
     qualityToggle.setAttribute('aria-expanded', 'true')
   }
 }
@@ -174,6 +180,9 @@ var checkSource = debounce(function() {
 /* Hook up the event listeners */
 let mousedown = false;
 let playing = false;
+
+player.addEventListener('mouseleave', hideMenu);
+// player.addEventListener('mousemove')
 
 video.addEventListener('loadedmetadata', () => { updateProgress(); updateAudioControls(); updateMenu(); });
 video.addEventListener('click', togglePlay);

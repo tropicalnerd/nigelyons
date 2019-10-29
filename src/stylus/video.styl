@@ -6,6 +6,7 @@
     padding-bottom: (100 * 1080 / 1920)%
 
     &:hover &__controls
+        opacity: 1
         // transform: translateY(0)
 
     &__video
@@ -24,8 +25,9 @@
         // overflow: hidden
         color: color__8
         z-index: 1
-        // transform: translateY(44px);
-        transition: transform .3s ease
+        opacity: 0
+        // transform: translateY(100%)
+        transition: opacity .3s ease
 
     &__controls-wrap
         display: flex
@@ -34,7 +36,7 @@
         position: relative
         width: 100%
         height: min-content
-        padding: (5 / 16)rem (7 / 16)rem (5 / 16)rem .5rem
+        padding: (5 / 16)rem (7 / 16)rem (5 / 16)rem .25rem
         background-color: color__3
         z-index: 2
 
@@ -63,7 +65,8 @@
         &:hover
             color: color__9
 
-    &__progress-time
+    &__time
+        display: none
         width: max-content
         font-size: .875rem
         line-height: 1
@@ -71,18 +74,42 @@
         padding: 0 .125em
         margin-right: .25rem
         font-variant-numeric: tabular-nums;
+       
+        @media screen and (min-width: 350px)
+            display: block
+
+        &-divider
+            color: color__5
+            display: none /* reveals on min-width: 500px */
+
+        &-remaining
+            color: color__7
+            display: none /* reveals on min-width: 500px */
+
+        &-divider, &-remaining
+            display: none
+
+            @media screen and (min-width: 500px)
+                display: inline
 
     &__progress-range
         width: 4rem
         flex-grow: 5
-        margin-left: .375rem
+        margin-left: .25rem
         margin-right: .5rem
 
+    
     &__volume-range
         width: 2rem
         flex-grow: 1
         margin-left: .25rem
         margin-right: .5rem
+
+    &__audio-toggle, &__volume-range
+        display: none
+
+        @media screen and (min-width: 450px)
+            display: block
 
     &__decoration
         width: 5rem
@@ -93,7 +120,6 @@
         // display: none;
 
 .quality-menu
-    display: inline-block
     position: absolute
     right: 0
     bottom: 100%
@@ -103,6 +129,9 @@
     background-color: color__2
     z-index: 1
     clip-path: polygon(0 1rem, 1rem 0, 100% 0px, 100% 100%, 0px 100%)
+    opacity: 1
+    // transform: translateY(0%)
+    transition: all .2s ease
 
     & > * + *
       margin-top: .5em
@@ -114,3 +143,5 @@
     &__radio
       margin: 0 .5rem 0 0
 
+    &.hidden
+        opacity: 0
