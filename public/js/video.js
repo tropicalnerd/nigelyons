@@ -115,14 +115,14 @@ function toggleMenu() {
 
 function autoQuality() {
   const videoHeight = video.offsetHeight;
-  let bestQuality;
+  let newQuality;
   for (let i = 0; i < sources.length; i++) {
     if (videoHeight <= sources[i].quality) {
-      bestQuality = sources[i].quality;
+      newQuality = sources[i].quality;
       break;
     }
   }
-  return bestQuality;
+  return newQuality;
 }
 
 function changeQuality() {
@@ -130,9 +130,9 @@ function changeQuality() {
   updateSource(newQuality);
 }
 
-function updateSource(bestQuality) {
+function updateSource(newQuality) {
   const currentSrc = new URL(video.currentSrc);
-  const index = sources.findIndex(source => source.quality === bestQuality);
+  const index = sources.findIndex(source => source.quality === newQuality);
   const newSrc = new URL(sources[index].src, currentSrc.origin);
   if (currentSrc.href !== newSrc.href) {
     const currentTime = video.currentTime;
@@ -142,10 +142,11 @@ function updateSource(bestQuality) {
   }
 }
 
-// function updateMenu() {
-//   const currentSrc = new URL(video.currentSrc);
-//   const index = source.qua
-// }
+function updateMenu() {
+  const currentSrc = new URL(video.currentSrc);
+  const index = sources.findIndex(source => new URL(source.src, currentSrc.origin).href === currentSrc.href);
+  qualityMenuItems[index].checked=true;
+}
 
 function debounce(func, wait, immediate) {
   var timeout;
@@ -170,7 +171,7 @@ var checkSource = debounce(function() {
 let mousedown = false;
 let playing = false;
 
-video.addEventListener('loadedmetadata', () => { updateProgress(); updateAudioControls(); });
+video.addEventListener('loadedmetadata', () => { updateProgress(); updateAudioControls(); updateMenu(); });
 video.addEventListener('click', togglePlay);
 video.addEventListener('play', updatePlayToggle);
 video.addEventListener('pause', updatePlayToggle);

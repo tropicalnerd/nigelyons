@@ -399,15 +399,16 @@ svg {
   transform: skew(30deg) translateX(-0.75rem);
 }
 .quality-menu {
+  display: inline-block;
   position: absolute;
   right: 0;
   bottom: 0;
-  width: 6rem;
-  padding: 1rem 1rem 2.75rem 1rem;
+  padding: 1rem 1.5rem 2.75rem;
   font-size: 0.875rem;
   color: #d9d9da;
   background-color: #3f4041;
   z-index: 1;
+  clip-path: polygon(0 1rem, 1rem 0, 100% 0px, 100% 100%, 0px 100%);
 }
 .quality-menu > * + * {
   margin-top: 0.5em;
