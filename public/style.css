@@ -335,7 +335,6 @@ svg {
   bottom: 0;
   left: 0;
   width: 100%;
-  overflow: hidden;
   color: #ececec;
   z-index: 1;
   transition: transform 0.3s ease;
@@ -397,6 +396,27 @@ svg {
   position: absolute;
   background-color: #595a5b;
   transform: skew(30deg) translateX(-0.75rem);
+}
+.quality-menu {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 6rem;
+  padding: 1rem 1rem 2.75rem 1rem;
+  font-size: 0.875rem;
+  color: #d9d9da;
+  background-color: #3f4041;
+  z-index: 1;
+}
+.quality-menu > * + * {
+  margin-top: 0.5em;
+}
+.quality-menu__label {
+  display: flex;
+  align-items: center;
+}
+.quality-menu__radio {
+  margin: 0 0.5rem 0 0;
 }
 @media (min-width: 480px) {
   .masthead__container {
