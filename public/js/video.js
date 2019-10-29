@@ -39,6 +39,11 @@ const audioMutedIcon =
   '<path d="M12 4L19 16M19 4L12 16" stroke="currentColor" stroke-width="2"/>';
 
 const volumeRange = player.querySelector('.player__volume-range');
+
+const qualityToggle = player.querySelector('.player__quality');
+const qualityMenu = player.querySelector('.quality-menu');
+const qualityMenuItems = player.querySelectorAll('.quality-menu__radio');
+
 const fullscreenToggle = player.querySelector('.player__fullscreen-toggle');
 
 /* Build out functions */
@@ -100,6 +105,14 @@ function updateVolume() {
   updateAudioControls();
 }
 
+function toggleMenu() {
+  if (qualityMenu.getAttribute('hidden') === null) {
+    qualityMenu.setAttribute('hidden', '');
+  } else {
+    qualityMenu.removeAttribute('hidden');
+  }
+}
+
 function autoQuality() {
   const videoHeight = video.offsetHeight;
   let bestQuality;
@@ -110,6 +123,11 @@ function autoQuality() {
     }
   }
   return bestQuality;
+}
+
+function changeQuality() {
+  const newQuality = sources[this.value].quality;
+  updateSource(newQuality);
 }
 
 function updateSource(bestQuality) {
@@ -123,6 +141,11 @@ function updateSource(bestQuality) {
     if (playing === true) { video.play(); }
   }
 }
+
+// function updateMenu() {
+//   const currentSrc = new URL(video.currentSrc);
+//   const index = source.qua
+// }
 
 function debounce(func, wait, immediate) {
   var timeout;
@@ -167,6 +190,9 @@ progressRange.addEventListener('mouseup', () => {
 
 audioToggle.addEventListener('click', toggleMuted);
 volumeRange.addEventListener('input', updateVolume);
+
+qualityToggle.addEventListener('click', toggleMenu);
+qualityMenuItems.forEach(menuItem => menuItem.addEventListener('change', changeQuality));
 
 fullscreenToggle.addEventListener('click', () => video.requestFullscreen());
 
