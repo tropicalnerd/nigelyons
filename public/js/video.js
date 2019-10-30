@@ -15,6 +15,8 @@ for (let i = 0; i < sources.length; i++) {
 }
 sources.sort(function(a, b) { return a.quality - b.quality; });
 
+const controls = player.querySelector('.player__controls');
+
 const playToggle = player.querySelector('.player__play-toggle');
 const playToggleIcon = playToggle.querySelector('svg');
 const playIcon = playToggleIcon.innerHTML;
@@ -177,12 +179,25 @@ var checkSource = debounce(function() {
   updateSource(autoQuality());
 }, 250);
 
+function hideControls() {
+  controls.className += ' hidden';
+}
+
+var debounceHideControls = debounce(function() {
+  hideControls();
+}, 2000);
+
+function showControls() {
+  controls.classList.remove('hidden');
+  debounceHideControls();
+}
+
 /* Hook up the event listeners */
 let mousedown = false;
 let playing = false;
 
-player.addEventListener('mouseleave', hideMenu);
-// player.addEventListener('mousemove')
+player.addEventListener('mouseleave', () => { hideMenu(); hideControls(); });
+player.addEventListener('mousemove', showControls);
 
 video.addEventListener('loadedmetadata', () => { updateProgress(); updateAudioControls(); updateMenu(); });
 video.addEventListener('click', togglePlay);

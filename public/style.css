@@ -285,9 +285,6 @@ svg {
   height: 0;
   padding-bottom: 56.25%;
 }
-.player:hover .player__controls {
-  opacity: 1;
-}
 .player__video {
   display: block;
   position: absolute;
@@ -303,8 +300,15 @@ svg {
   width: 100%;
   color: #ececec;
   z-index: 1;
+  opacity: 1;
+  transition: opacity 0.2s ease;
+}
+.player__controls:hover,
+.player__controls.hidden:hover {
+  opacity: 1;
+}
+.player__controls.hidden {
   opacity: 0;
-  transition: opacity 0.3s ease;
 }
 .player__controls-wrap {
   display: flex;
