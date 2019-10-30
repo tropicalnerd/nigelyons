@@ -13,7 +13,9 @@ for (let i = 0; i < sources.length; i++) {
     quality: Number(sourceNodes[i].getAttribute('data-quality'))
   };
 }
-sources.sort(function(a, b) { return a.quality - b.quality; });
+sources.sort(function(a, b) {
+  return a.quality - b.quality;
+});
 
 const controls = player.querySelector('.player__controls');
 
@@ -25,12 +27,8 @@ const pauseIcon =
   '<rect width="10" height="20" />' +
   '<rect width="10" height="20" x="18" />';
 
-const progressTimeCurrent = player.querySelector(
-  '.player__time-current'
-);
-const progressTimeRemaining = player.querySelector(
-  '.player__time-remaining'
-);
+const progressTimeCurrent = player.querySelector('.player__time-current');
+const progressTimeRemaining = player.querySelector('.player__time-remaining');
 const progressRange = player.querySelector('.player__progress-range');
 const audioToggle = player.querySelector('.player__audio-toggle');
 const audioToggleIcon = audioToggle.querySelector('svg');
@@ -109,10 +107,10 @@ function updateVolume() {
 
 function hideMenu() {
   qualityMenu.className += ' hidden';
-    setTimeout(() => {
-      qualityMenu.hidden = true;
-      qualityToggle.setAttribute('aria-expanded', 'false');
-    }, 200);
+  setTimeout(() => {
+    qualityMenu.hidden = true;
+    qualityToggle.setAttribute('aria-expanded', 'false');
+  }, 200);
 }
 
 function toggleMenu() {
@@ -121,7 +119,7 @@ function toggleMenu() {
   } else {
     qualityMenu.hidden = false;
     setTimeout(() => qualityMenu.classList.remove('hidden'), 5);
-    qualityToggle.setAttribute('aria-expanded', 'true')
+    qualityToggle.setAttribute('aria-expanded', 'true');
   }
 }
 
@@ -150,20 +148,25 @@ function updateSource(newQuality) {
     const currentTime = video.currentTime;
     video.src = newSrc.href;
     video.currentTime = currentTime;
-    if (playing === true) { video.play(); }
+    if (playing === true) {
+      video.play();
+    }
   }
 }
 
 function updateMenu() {
   const currentSrc = new URL(video.currentSrc);
-  const index = sources.findIndex(source => new URL(source.src, currentSrc.origin).href === currentSrc.href);
-  qualityMenuItems[index].checked=true;
+  const index = sources.findIndex(
+    source => new URL(source.src, currentSrc.origin).href === currentSrc.href
+  );
+  qualityMenuItems[index].checked = true;
 }
 
 function debounce(func, wait, immediate) {
   var timeout;
   return function() {
-    var context = this; var args = arguments;
+    var context = this;
+    var args = arguments;
     var later = function() {
       timeout = null;
       if (!immediate) func.apply(context, args);
@@ -173,7 +176,7 @@ function debounce(func, wait, immediate) {
     timeout = setTimeout(later, wait);
     if (callNow) func.apply(context, args);
   };
-};
+}
 
 var checkSource = debounce(function() {
   updateSource(autoQuality());
@@ -196,10 +199,20 @@ function showControls() {
 let mousedown = false;
 let playing = false;
 
-player.addEventListener('mouseleave', () => { hideMenu(); hideControls(); });
+player.addEventListener('mouseleave', () => {
+  hideMenu();
+  hideControls();
+});
 player.addEventListener('mousemove', showControls);
 
-video.addEventListener('loadedmetadata', () => { updateProgress(); updateAudioControls(); updateMenu(); });
+video.addEventListener('loadedmetadata', () => updateSource(autoQuality()), {
+  once: true
+});
+video.addEventListener('loadedmetadata', () => {
+  updateProgress();
+  updateAudioControls();
+  updateMenu();
+});
 video.addEventListener('click', togglePlay);
 video.addEventListener('play', updatePlayToggle);
 video.addEventListener('pause', updatePlayToggle);
@@ -210,21 +223,28 @@ playToggle.addEventListener('click', togglePlay);
 progressRange.addEventListener('input', scrub);
 progressRange.addEventListener('mousedown', () => {
   mousedown = true;
-  if (playing === true) { video.pause(); }
+  if (playing === true) {
+    video.pause();
+  }
 });
 progressRange.addEventListener('mouseup', () => {
   mousedown = false;
-  if (playing === true) { video.play(); }
+  if (playing === true) {
+    video.play();
+  }
 });
 
 audioToggle.addEventListener('click', toggleMuted);
 volumeRange.addEventListener('input', updateVolume);
 
 qualityToggle.addEventListener('click', toggleMenu);
-qualityMenuItems.forEach(menuItem => menuItem.addEventListener('change', changeQuality));
+qualityMenu.addEventListener('mouseleave', hideMenu);
+qualityMenuItems.forEach(menuItem =>
+  menuItem.addEventListener('change', changeQuality)
+);
 
-fullscreenToggle.addEventListener('click', () => video.requestFullscreen());
+fullscreenToggle.addEventListener('click', () => player.requestFullscreen());
 
 /* Execute */
-video.addEventListener('loadedmetadata', () => updateSource(autoQuality()), { once: true });
+
 window.addEventListener('resize', checkSource);
