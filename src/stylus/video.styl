@@ -5,8 +5,6 @@
     height: 0
     padding-bottom: (100 * 1080 / 1920)%
 
-    
-
     &__video
         display: block
         position: absolute
@@ -109,11 +107,41 @@
         margin-left: .25rem
         margin-right: .5rem
 
-    &__audio-toggle, &__volume-range
+    &__mute-toggle, &__volume-range
         display: none
 
         @media screen and (min-width: 450px)
             display: block
+
+    &__quality-menu
+        position: absolute
+        right: 0
+        bottom: 100%
+        padding: 1rem 1.5rem
+        font-size: .875rem
+        color: color__7
+        background-color: color__2
+        z-index: 1
+        clip-path: polygon(0 1rem, 1rem 0, 100% 0px, 100% 100%, 0px 100%)
+        opacity: 1
+        // transform: translateY(0%)
+        transition: all .2s ease
+
+        & > * + *
+            margin-top: .5em
+
+        &__heading
+          font-weight: 600
+
+        &__label
+            display: flex
+            align-items: center
+
+        &__radio
+            margin: 0 .5rem 0 0
+
+        &.hidden
+            opacity: 0
 
     &__decoration
         width: 5rem
@@ -123,31 +151,14 @@
         transform: skew(30deg) translateX(-.75rem)
         // display: none;
 
-.quality-menu
-    position: absolute
-    right: 0
-    bottom: 100%
-    padding: 1rem 1.5rem
-    font-size: .875rem
-    color: color__7
-    background-color: color__2
-    z-index: 1
-    clip-path: polygon(0 1rem, 1rem 0, 100% 0px, 100% 100%, 0px 100%)
-    opacity: 1
-    // transform: translateY(0%)
-    transition: all .2s ease
+    &:fullscreen:not(:root)
+      display: flex
+      align-items: center
+      padding: 0
+      border-radius: 0
 
-    & > * + *
-        margin-top: .5em
+    
 
-    &__label
-        display: flex
-        align-items: center
-
-    &__radio
-        margin: 0 .5rem 0 0
-
-    &.hidden
-        opacity: 0
+    
 
     

@@ -389,24 +389,17 @@ svg {
   margin-left: 0.25rem;
   margin-right: 0.5rem;
 }
-.player__audio-toggle,
+.player__mute-toggle,
 .player__volume-range {
   display: none;
 }
 @media screen and (min-width: 450px) {
-  .player__audio-toggle,
+  .player__mute-toggle,
   .player__volume-range {
     display: block;
   }
 }
-.player__decoration {
-  width: 5rem;
-  height: 100%;
-  position: absolute;
-  background-color: #595a5b;
-  transform: skew(30deg) translateX(-0.75rem);
-}
-.quality-menu {
+.player__quality-menu {
   position: absolute;
   right: 0;
   bottom: 100%;
@@ -419,18 +412,34 @@ svg {
   opacity: 1;
   transition: all 0.2s ease;
 }
-.quality-menu > * + * {
+.player__quality-menu > * + * {
   margin-top: 0.5em;
 }
-.quality-menu__label {
+.player__quality-menu__heading {
+  font-weight: 600;
+}
+.player__quality-menu__label {
   display: flex;
   align-items: center;
 }
-.quality-menu__radio {
+.player__quality-menu__radio {
   margin: 0 0.5rem 0 0;
 }
-.quality-menu.hidden {
+.player__quality-menu.hidden {
   opacity: 0;
+}
+.player__decoration {
+  width: 5rem;
+  height: 100%;
+  position: absolute;
+  background-color: #595a5b;
+  transform: skew(30deg) translateX(-0.75rem);
+}
+.player:fullscreen:not(:root) {
+  display: flex;
+  align-items: center;
+  padding: 0;
+  border-radius: 0;
 }
 @media (min-width: 480px) {
   .masthead__container {

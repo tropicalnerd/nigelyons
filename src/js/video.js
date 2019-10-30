@@ -23,26 +23,24 @@ const playToggle = player.querySelector('.player__play-toggle');
 const playToggleIcon = playToggle.querySelector('svg');
 const playIcon = playToggleIcon.innerHTML;
 const pauseIcon =
-  '<title id="play-title">Pause</title>' +
-  '<rect width="10" height="20" />' +
-  '<rect width="10" height="20" x="18" />';
+  '<title id="play-title-0">Pause</title>' +
+  '<use xlink:href="#player__icon--pause" />';
 
 const progressTimeCurrent = player.querySelector('.player__time-current');
 const progressTimeRemaining = player.querySelector('.player__time-remaining');
 const progressRange = player.querySelector('.player__progress-range');
-const audioToggle = player.querySelector('.player__audio-toggle');
-const audioToggleIcon = audioToggle.querySelector('svg');
-const audioOnIcon = audioToggleIcon.innerHTML;
-const audioMutedIcon =
-  '<title id="audio-title">Audio Muted</title>' +
-  '<path d="M8.8 0L2.8 6H0V8.8V11.2V14H2.8L8.8 20V0Z" />' +
-  '<path d="M12 4L19 16M19 4L12 16" stroke="currentColor" stroke-width="2"/>';
+const muteToggle = player.querySelector('.player__mute-toggle');
+const muteToggleIcon = muteToggle.querySelector('svg');
+const muteIcon = muteToggleIcon.innerHTML;
+const unmuteIcon =
+  '<title id="mute-title-0">Unmute</title>' +
+  '<use xlink:href="#player__icon--unmute" />';
 
 const volumeRange = player.querySelector('.player__volume-range');
 
 const qualityToggle = player.querySelector('.player__quality');
-const qualityMenu = player.querySelector('.quality-menu');
-const qualityMenuItems = player.querySelectorAll('.quality-menu__radio');
+const qualityMenu = player.querySelector('.player__quality-menu');
+const qualityMenuItems = player.querySelectorAll('.player__quality-menu__radio');
 
 const fullscreenToggle = player.querySelector('.player__fullscreen-toggle');
 
@@ -84,17 +82,17 @@ function scrub() {
   video.currentTime = progressRange.value * video.duration;
 }
 
-function toggleMuted() {
+function toggleMute() {
   video.muted = !video.muted;
   updateAudioControls();
 }
 
 function updateAudioControls() {
   if (video.muted === true) {
-    audioToggleIcon.innerHTML = audioMutedIcon;
+    muteToggleIcon.innerHTML = unmuteIcon;
     volumeRange.value = 0;
   } else {
-    audioToggleIcon.innerHTML = audioOnIcon;
+    muteToggleIcon.innerHTML = muteIcon;
     volumeRange.value = video.volume;
   }
 }
@@ -106,7 +104,7 @@ function updateVolume() {
 }
 
 function hideMenu() {
-  qualityMenu.className += ' hidden';
+  qualityMenu.classList.add('hidden');
   setTimeout(() => {
     qualityMenu.hidden = true;
     qualityToggle.setAttribute('aria-expanded', 'false');
@@ -183,7 +181,7 @@ var checkSource = debounce(function() {
 }, 250);
 
 function hideControls() {
-  controls.className += ' hidden';
+  controls.classList.add('hidden');
 }
 
 var debounceHideControls = debounce(function() {
@@ -234,7 +232,7 @@ progressRange.addEventListener('mouseup', () => {
   }
 });
 
-audioToggle.addEventListener('click', toggleMuted);
+muteToggle.addEventListener('click', toggleMute);
 volumeRange.addEventListener('input', updateVolume);
 
 qualityToggle.addEventListener('click', toggleMenu);
