@@ -1,70 +1,12 @@
 main.main
   .main__container.container
     +c-block('Reel', 'reel')
-      //- div.block__video-wrap.block__video-wrap--reel
-        //- <video preload="none" tabindex="-1" style="" src="blob:https://player.vimeo.com/5810eb8f-8f0d-3f44-ae5d-c390c870b948"></video>
-      //- video(
-      //-   class="block__video block__video--reel"
-      //-   width="740" height="416"
-      //-   controls)
-      //-   source(src='video/Nigel Reel 2015.mp4' type='video/mp4')
-        //- <iframe src="https://player.vimeo.com/video/120547617?color=ffffff&amp;title=0&amp;byline=0&amp;portrait=0" width="740" height="416" frameborder="0" allowfullscreen="allowfullscreen" title="Video Player"></iframe>   
-
-      .player
-        include ../svg/icons.svg
-        video.player__video(width='480' height='270')
-          source(src='video/nigel-reel-2015_480.mp4' type='video/mp4' data-quality='270')
-          source(src='video/nigel-reel-2015_640.mp4' type='video/mp4' data-quality='360')
-          source(src='video/nigel-reel-2015_1280.mp4' type='video/mp4' data-quality='720')
-          source(src='video/nigel-reel-2015_1920.mp4' type='video/mp4' data-quality='1080')
-
-        .player__controls.hidden
-          button.player__button.player__play-toggle(title='Toggle Play')
-            .player__play-toggle__inner
-              +player__icon('play', 'Play', 25, 20, 0)
-
-          .player__controls-wrap
-            label.player__progress.material-slider
-              input(type='range' name='progress' min=0 max=1 step='any' value='0' title='Progress')
-            
-            .player__time #[span.player__time-current 0:00] #[span.player__time-divider /] #[span.player__time-remaining 0:00]
-
-            .player__audio
-              button.player__button.player__mute-toggle(title='Toggle Mute')
-                +player__icon('mute', 'Mute', 16, 16, 0)
-              label.player__volume.material-slider
-                input(type='range' name='volume' min=0 max=1 step='0.05' value='1' title='Volume')
-            
-            button.player__button.player__quality-toggle(title='Quality')
-              +player__icon('quality', 'Quality', 16, 16, 0)
-            
-            .player__quality-menu.hidden(role='menu' hidden='')
-              .player__quality-menu__heading Quality
-              label.player__quality-menu__label
-                input.player__quality-menu__radio(type='radio' value='0' name='quality' checked)
-                | 240p
-              label.player__quality-menu__label
-                input.player__quality-menu__radio(type='radio' value='1' name='quality')
-                | 480p
-              label.player__quality-menu__label
-                input.player__quality-menu__radio(type='radio' value='2' name='quality')
-                | 720p
-              label.player__quality-menu__label
-                input.player__quality-menu__radio(type='radio' value='3' name='quality')
-                | 1080p
-            
-            button.player__button.player__fullscreen-toggle(title='Fullscreen')
-              +player__icon('fullscreen', 'Fullscreen', 16, 14, 0)
-                   
-          .player__decoration(role='presentation')
-
-    +c-block('About', 'about')
-      picture.block__text--about__image
-        source(type='image/webp' srcset='images/nigel_900.webp 900w, images/nigel_600.webp 600w, images/nigel_300.webp 300w')
-        source(type='image/jpg' srcset='images/nigel_900.jpg 900w, images/nigel_600.jpg 600w, images/nigel_300 300w')
-        img(src='images/nigel_900.jpg' srcset='images/nigel_900.jpg 900w, images/nigel_600.jpg 600w, images/nigel_300 300w' alt='Nigel Lyons standing in the street in DC facing the camera')
-      h3 Nigel Lyons
-      p Hailing from Ohio, now freelancing in Washington, DC. Shooter and editor of all things documentary, political, art, music and tv. Whether creating a captivating video for a successful Kickstarter campaign or shooting a music video in anamorphic widescreen, Nigel brings his unique ideas, vision and creative energies to every project.
+      div.block__video-wrap.block__video-wrap--reel
+        video.block__video.block__video--reel(width='480' height='270' controls)
+          source(src='video/nigel-reel-2015_270.mp4' type='video/mp4' data-quality='270')
+          source(src='video/nigel-reel-2015_360.mp4' type='video/mp4' data-quality='360')
+          source(src='video/nigel-reel-2015_720.mp4' type='video/mp4' data-quality='720')
+          source(src='video/nigel-reel-2015_1080.mp4' type='video/mp4' data-quality='1080')
     
     //- +c-block('Portfolio', 'portfolio')
       +portfolio-item('Clones of Clones - Somebody Else', 'Directed, Filmed and Edited.', 'September 22, 2015', 'Music Video')
