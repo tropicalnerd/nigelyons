@@ -113,6 +113,12 @@
         @media screen and (min-width: 450px)
             display: block
 
+    &__quality-toggle
+        transition: transform .2s ease
+
+        &[aria-expanded="true"]
+          transform: rotate(30deg)
+
     &__quality-menu
         position: absolute
         right: 0
@@ -144,11 +150,11 @@
             opacity: 0
 
     &__decoration
-        width: 5rem
-        height: 100%
+        width: 10rem
+        height: 101%
         position: absolute
         background-color: color__3
-        transform: skew(30deg) translateX(-.75rem)
+        transform: skew(45deg) translateX(-5.25rem)
         // display: none;
 
     &:fullscreen:not(:root)

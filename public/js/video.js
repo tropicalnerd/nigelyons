@@ -38,11 +38,16 @@ const unmuteIcon =
 
 const volumeRange = player.querySelector('.player__volume-range');
 
-const qualityToggle = player.querySelector('.player__quality');
+const qualityToggle = player.querySelector('.player__quality-toggle');
 const qualityMenu = player.querySelector('.player__quality-menu');
 const qualityMenuItems = player.querySelectorAll('.player__quality-menu__radio');
 
 const fullscreenToggle = player.querySelector('.player__fullscreen-toggle');
+const fullscreenToggleIcon = fullscreenToggle.querySelector('svg');
+const fullscreenIcon = fullscreenToggleIcon.innerHTML;
+const unfullscreenIcon =
+  '<title id="fullscreen-title-0">Unfullscreen</title>' +
+  '<use xlink:href="#player__icon--unfullscreen" />';
 
 /* Build out functions */
 function stringPadLeft(string, pad, length) {
@@ -160,6 +165,16 @@ function updateMenu() {
   qualityMenuItems[index].checked = true;
 }
 
+function toggleFullscreen() {
+  if (!document.fullscreenElement) {
+    player.requestFullscreen().catch(err => {
+      console.log(err);
+    });
+  } else {
+    document.exitFullscreen();
+  }
+}
+
 function debounce(func, wait, immediate) {
   var timeout;
   return function() {
@@ -197,24 +212,28 @@ function showControls() {
 let mousedown = false;
 let playing = false;
 
-player.addEventListener('mouseleave', () => {
-  hideMenu();
-  hideControls();
-});
-player.addEventListener('mousemove', showControls);
-
-video.addEventListener('loadedmetadata', () => updateSource(autoQuality()), {
+video.addEventListener('loadedmetadata', () => {
+  video.addEventListener('loadedmetadata', () => {
+    updateProgress();
+    updateAudioControls();
+    updateMenu();
+  });
+  updateSource(autoQuality());
+}, {
   once: true
 });
-video.addEventListener('loadedmetadata', () => {
-  updateProgress();
-  updateAudioControls();
-  updateMenu();
-});
+
 video.addEventListener('click', togglePlay);
 video.addEventListener('play', updatePlayToggle);
 video.addEventListener('pause', updatePlayToggle);
 video.addEventListener('timeupdate', updateProgress);
+
+player.addEventListener('mouseleave', () => {
+  hideMenu();
+  hideControls();
+});
+
+player.addEventListener('mousemove', showControls);
 
 playToggle.addEventListener('click', togglePlay);
 
@@ -225,6 +244,7 @@ progressRange.addEventListener('mousedown', () => {
     video.pause();
   }
 });
+
 progressRange.addEventListener('mouseup', () => {
   mousedown = false;
   if (playing === true) {
@@ -241,7 +261,7 @@ qualityMenuItems.forEach(menuItem =>
   menuItem.addEventListener('change', changeQuality)
 );
 
-fullscreenToggle.addEventListener('click', () => player.requestFullscreen());
+fullscreenToggle.addEventListener('click', toggleFullscreen);
 
 /* Execute */
 

@@ -399,6 +399,12 @@ svg {
     display: block;
   }
 }
+.player__quality-toggle {
+  transition: transform 0.2s ease;
+}
+.player__quality-toggle[aria-expanded="true"] {
+  transform: rotate(30deg);
+}
 .player__quality-menu {
   position: absolute;
   right: 0;
@@ -429,11 +435,11 @@ svg {
   opacity: 0;
 }
 .player__decoration {
-  width: 5rem;
-  height: 100%;
+  width: 10rem;
+  height: 101%;
   position: absolute;
   background-color: #595a5b;
-  transform: skew(30deg) translateX(-0.75rem);
+  transform: skew(45deg) translateX(-5.25rem);
 }
 .player:fullscreen:not(:root) {
   display: flex;
