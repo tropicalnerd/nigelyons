@@ -29,10 +29,11 @@ main.main
             
             .player__time #[span.player__time-current 0:00] #[span.player__time-divider /] #[span.player__time-remaining 0:00]
 
-            button.player__button.player__mute-toggle(title='Toggle Mute')
-              +player__icon('mute', 'Mute', 16, 16, 0)
-            label.player__volume.material-slider
-              input(type='range' name='volume' min=0 max=1 step='0.05' value='1' title='Volume')
+            .player__audio
+              button.player__button.player__mute-toggle(title='Toggle Mute')
+                +player__icon('mute', 'Mute', 16, 16, 0)
+              label.player__volume.material-slider
+                input(type='range' name='volume' min=0 max=1 step='0.05' value='1' title='Volume')
             
             button.player__button.player__quality-toggle(title='Quality')
               +player__icon('quality', 'Quality', 16, 16, 0)

@@ -34,7 +34,7 @@
         display: flex
         align-items: center
         justify-content: space-between
-        position: relative
+        // position: relative
         width: 100%
         height: min-content
         padding: (5 / 16)rem (7 / 16)rem (5 / 16)rem .25rem
@@ -69,11 +69,11 @@
     &__time
         display: none
         width: max-content
-        font-size: .875rem
+        font-size: .85rem
         line-height: 1
         font-weight: 300
-        padding: 0 .125em
-        margin-right: .25rem
+        padding: 0 0 .1em
+        margin: 0 .5rem
         font-variant-numeric: tabular-nums;
        
         @media screen and (min-width: 350px)
@@ -99,18 +99,25 @@
         margin-left: .25rem
         margin-right: .5rem
 
-    
+    &__audio
+        display: flex
+
+        @media screen and (max-width: 450px)
+          position: absolute
+
+    // &__mute-toggle, &__volume-range
+    //     display: none
+
+    //     @media screen and (min-width: 450px)
+    //         display: block
+
     &__volume
+        // display: none
         width: 2rem
+        max-width: 5rem
         flex-grow: 1
         margin-left: .25rem
         margin-right: .5rem
-
-    &__mute-toggle, &__volume-range
-        display: none
-
-        @media screen and (min-width: 450px)
-            display: block
 
     &__quality-toggle
         transition: transform .2s ease

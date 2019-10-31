@@ -4,11 +4,11 @@
   --material-safari-helper3: rgba(var(--material-primary-rgb, 33, 150, 243), 0.16);
   --material-safari-helper4: rgba(var(--material-primary-rgb, 33, 150, 243), 0.24);
   display: inline-block;
-  width: 200px;
-  color: rgba(var(--material-onsurface-rgb, 0, 0, 0), 0.87);
+  /* width: 200px; */
+  /* color: rgba(var(--material-onsurface-rgb, 0, 0, 0), 0.87);
   font-family: var(--material-font, "Roboto", "Segoe UI", BlinkMacSystemFont, system-ui, -apple-system);
   font-size: 16px;
-  line-height: 1.5;
+  line-height: 1.5; */
 }
 
 /* Input */

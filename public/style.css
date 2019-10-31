@@ -72,17 +72,24 @@ svg {
   margin-left: auto;
   margin-right: auto;
 }
+.visibly-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  opacity: 0 !important;
+  overflow: hidden;
+}
 .material-slider {
   --material-safari-helper1: rgba(var(--material-primary-rgb, 33, 150, 243), 0.04);
   --material-safari-helper2: rgba(var(--material-primary-rgb, 33, 150, 243), 0.12);
   --material-safari-helper3: rgba(var(--material-primary-rgb, 33, 150, 243), 0.16);
   --material-safari-helper4: rgba(var(--material-primary-rgb, 33, 150, 243), 0.24);
   display: inline-block;
-  width: 200px;
-  color: rgba(var(--material-onsurface-rgb, 0, 0, 0), 0.87);
+  /* width: 200px; */
+  /* color: rgba(var(--material-onsurface-rgb, 0, 0, 0), 0.87);
   font-family: var(--material-font, "Roboto", "Segoe UI", BlinkMacSystemFont, system-ui, -apple-system);
   font-size: 16px;
-  line-height: 1.5;
+  line-height: 1.5; */
 }
 
 /* Input */
@@ -570,7 +577,6 @@ svg {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  position: relative;
   width: 100%;
   height: min-content;
   padding: 0.3125rem 0.4375rem 0.3125rem 0.25rem;
@@ -599,11 +605,11 @@ svg {
 .player__time {
   display: none;
   width: max-content;
-  font-size: 0.875rem;
+  font-size: 0.85rem;
   line-height: 1;
   font-weight: 300;
-  padding: 0 0.125em;
-  margin-right: 0.25rem;
+  padding: 0 0 0.1em;
+  margin: 0 0.5rem;
   font-variant-numeric: tabular-nums;
 }
 @media screen and (min-width: 350px) {
@@ -635,21 +641,20 @@ svg {
   margin-left: 0.25rem;
   margin-right: 0.5rem;
 }
+.player__audio {
+  display: flex;
+}
+@media screen and (max-width: 450px) {
+  .player__audio {
+    position: absolute;
+  }
+}
 .player__volume {
   width: 2rem;
+  max-width: 5rem;
   flex-grow: 1;
   margin-left: 0.25rem;
   margin-right: 0.5rem;
-}
-.player__mute-toggle,
-.player__volume-range {
-  display: none;
-}
-@media screen and (min-width: 450px) {
-  .player__mute-toggle,
-  .player__volume-range {
-    display: block;
-  }
 }
 .player__quality-toggle {
   transition: transform 0.2s ease;
