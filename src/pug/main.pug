@@ -24,4 +24,13 @@ main.main
       +portfolio-item('The Importance of S/4HANA', 'Filmed', 'February 25, 2015', 'Corporate')
         <iframe src="https://www.youtube.com/embed/7S4-_--ZvkE?rel=0" allowfullscreen="allowfullscreen" width="740" height="416" frameborder="0" title="Video Player"></iframe>
 
+    +c-block('About', 'about')
+      picture.block__text--about__image
+        source(type='image/webp' srcset='images/nigel_900.webp 900w, images/nigel_600.webp 600w, images/nigel_300.webp 300w')
+        source(type='image/jpg' srcset='images/nigel_900.jpg 900w, images/nigel_600.jpg 600w, images/nigel_300 300w')
+        img(src='images/nigel_900.jpg' srcset='images/nigel_900.jpg 900w, images/nigel_600.jpg 600w, images/nigel_300 300w' alt='Nigel Lyons standing in the street in DC facing the camera')
+      h3 Nigel Lyons
+      p Hailing from Ohio, now freelancing in Washington, DC. Shooter and editor of all things documentary, political, art, music and tv. Whether creating a captivating video for a successful Kickstarter campaign or shooting a music video in anamorphic widescreen, Nigel brings his unique ideas, vision and creative energies to every project.
+
+
 script(src='js/video.js')

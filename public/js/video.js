@@ -19,6 +19,8 @@ sources.sort(function(a, b) {
 });
 
 /* Build out functions */
+
+/* Check current video height and return optimal video quality */
 function autoQuality() {
   const videoHeight = video.offsetHeight;
   let newQuality;
@@ -31,16 +33,17 @@ function autoQuality() {
   return newQuality;
 }
 
+/* If new quality is different than current quality, switch video sources */
 function updateSource(newQuality) {
   const currentSrc = new URL(video.currentSrc);
   const index = sources.findIndex(source => source.quality === newQuality);
   const newSrc = new URL(sources[index].src, currentSrc.origin);
   if (currentSrc.href !== newSrc.href) {
     const currentTime = video.currentTime;
+    const paused = video.paused;
     video.src = newSrc.href;
-    console.log(`Changed video source from ${currentSrc.href} to ${newSrc.href}`);
     video.currentTime = currentTime;
-    if (playing === true) {
+    if (!paused) {
       video.play();
     }
   }
@@ -65,8 +68,6 @@ function debounce(func, wait, immediate) {
 var debounceUpdateSource = debounce(function() {
   updateSource(autoQuality());
 }, 250);
-
-let playing = false;
 
 video.addEventListener('loadedmetadata', () => {
   updateSource(autoQuality());
