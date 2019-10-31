@@ -1,32 +1,32 @@
 <svg class="player__icons" style="display:none">
     <symbol id="player__icon--play" viewBox="0 0 25 20" fill="currentColor">
-        <path d="M0 1.44A1 1 0 011.349.501l22.992 8.56c.869.324.869 1.552 0 1.875L1.35 19.497A1 1 0 010 18.562V1.439z"/>
+        <path d="M0 0l25 10L0 20V0z"/>
     </symbol>
     
     <symbol id="player__icon--pause" viewBox="0 0 25 20" fill="currentColor">
-        <rect width="9" height="20" rx="1"/>
-        <rect width="9" height="20" x="16" rx="1"/>
+        <rect width="9" height="20"/>
+        <rect width="9" height="20" x="16"/>
     </symbol>
 
-    <symbol id="player__icon--mute" viewBox="0 0 20 20" fill="currentColor">
-        <path d="M16.763 3.238a.631.631 0 01.949.045A10.952 10.952 0 0120 10c0 2.53-.854 4.859-2.288 6.717a.632.632 0 01-.95.045.698.698 0 01-.047-.914A9.638 9.638 0 0018.68 10a9.638 9.638 0 00-1.965-5.848.698.698 0 01.048-.914zM14.248 14.247c.278.278.737.258.957-.068A7.446 7.446 0 0016.48 10c0-1.548-.47-2.986-1.275-4.18-.22-.325-.68-.345-.957-.068-.24.24-.258.62-.074.904.624.963.986 2.111.986 3.344a6.13 6.13 0 01-.986 3.344c-.184.285-.166.664.074.903zM11.67 11.67c.305.305.816.259.983-.138.198-.471.307-.989.307-1.532s-.11-1.06-.307-1.532c-.167-.397-.678-.443-.982-.139-.22.22-.256.557-.16.852a2.637 2.637 0 010 1.638c-.096.295-.06.632.16.851zM2.586 6a1 1 0 00.707-.293l5-5C8.923.077 10 .523 10 1.414v17.172c0 .89-1.077 1.337-1.707.707l-5-5A1 1 0 002.586 14H1a1 1 0 01-1-1V7a1 1 0 011-1h1.586z"/>
+    <symbol id="player__icon--mute" viewBox="0 0 16 16" fill="currentColor">
+        <path d="M8 0L3 5H0v6h3l5 5V0zM11.95 12.95A6.978 6.978 0 0014 8a6.978 6.978 0 00-2.05-4.95l1.414-1.414A8.972 8.972 0 0116 8a8.972 8.972 0 01-2.636 6.364L11.95 12.95zm-1.414-8.486A4.984 4.984 0 0112 8c0 1.38-.56 2.63-1.464 3.536L9.12 10.12A2.99 2.99 0 0010 8a2.99 2.99 0 00-.879-2.121l1.415-1.415z"/>
     </symbol>
 
-    <symbol id="player__icon--unmute" viewBox="0 0 20 20">
-        <path fill="currentColor" d="M2.586 6a1 1 0 00.707-.293l5-5C8.923.077 10 .523 10 1.414v17.172c0 .89-1.077 1.337-1.707.707l-5-5A1 1 0 002.586 14H1a1 1 0 01-1-1V7a1 1 0 011-1h1.586z"/>
-        <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M13 5l3 5m0 0l3 5m-3-5l3-5m-3 5l-3 5"/>
+    <symbol id="player__icon--unmute" viewBox="0 0 16 16">
+        <path fill="currentColor" d="M8 0L3 5H0v6h3l5 5V0z"/>
+        <path stroke="currentColor" stroke-width="1.75" d="M10 3l5 10m0-10l-5 10"/>
     </symbol>
 
-    <symbol id="player__icon--quality" viewBox="0 0 22 20">
-        <path fill="currentColor" fill-rule="evenodd" d="M8 1a1 1 0 011-1h4a1 1 0 011 1v1.494l2 1.155 1.294-.747a1 1 0 011.366.366l2 3.464a1 1 0 01-.366 1.366L19 8.845v2.31l1.294.747a1 1 0 01.366 1.366l-2 3.464a1 1 0 01-1.366.366L16 16.351l-2 1.155V19a1 1 0 01-1 1H9a1 1 0 01-1-1v-1.494L6 16.35l-1.294.747a1 1 0 01-1.366-.366l-2-3.464a1 1 0 01.366-1.366L3 11.155v-2.31l-1.294-.747a1 1 0 01-.366-1.366l2-3.464a1 1 0 011.366-.366L6 3.649l2-1.155V1zm3 13a4 4 0 100-8 4 4 0 000 8z"/>
+    <symbol id="player__icon--quality" viewBox="0 0 16 16">
+        <path fill="currentColor" fill-rule="evenodd" d="M6 0h4v2.227l2 1.154 1.928-1.113 2 3.464L14 6.845v2.31l1.928 1.113-2 3.464L12 12.62l-2 1.155V16H6v-2.226l-2-1.155-1.928 1.113-2-3.464L2 9.155v-2.31L.072 5.732l2-3.464L4 3.381l2-1.154V0zm2 11a3 3 0 100-6 3 3 0 000 6z"/>
     </symbol>
 
-    <symbol id="player__icon--fullscreen" viewBox="0 0 20 18" fill="currentColor">
-        <path d="M1 0a1 1 0 00-1 1v5a1 1 0 001 1h1a1 1 0 001-1V3h4a1 1 0 001-1V1a1 1 0 00-1-1H1zm18 0a1 1 0 011 1v5a1 1 0 01-1 1h-1a1 1 0 01-1-1V3h-4a1 1 0 01-1-1V1a1 1 0 011-1h6zm1 17a1 1 0 01-1 1h-6a1 1 0 01-1-1v-1a1 1 0 011-1h4v-3a1 1 0 011-1h1a1 1 0 011 1v5zm-19.102.995A1 1 0 010 17v-5a1 1 0 011-1h1a1 1 0 011 1v3h4a1 1 0 011 1v1a1 1 0 01-1 1H.994a1.01 1.01 0 01-.096-.005z" />
+    <symbol id="player__icon--fullscreen" viewBox="0 0 16 14" fill="currentColor">
+        <path d="M2 0H0v6h2V2h5V0H2zm7 0h7v6h-2V2H9V0zm7 8v6H9v-2h5V8h2zM2 14H0V8h2v4h5v2H2z"/>
     </symbol>
 
-    <svg id="player__icon--unfullscreen" viewBox="0 0 20 18" fill="currentColor">
-        <path d="M8 6a1 1 0 01-1 1H1a1 1 0 01-1-1V5a1 1 0 011-1h4V1a1 1 0 011-1h1a1 1 0 011 1v5zm-1 5a1 1 0 011 1v5a1 1 0 01-1 1H6a1 1 0 01-1-1v-3H1a1 1 0 01-1-1v-1a1 1 0 011-1h6zm6 0a1 1 0 00-1 1v5a1 1 0 001 1h1a1 1 0 001-1v-3h4a1 1 0 001-1v-1a1 1 0 00-1-1h-6zm0-4a1 1 0 01-1-1V1a1 1 0 011-1h1a1 1 0 011 1v3h4a1 1 0 011 1v1a1 1 0 01-1 1h-6z" clip-rule="evenodd"/>
+    <svg id="player__icon--unfullscreen" viewBox="0 0 16 14" fill="currentColor">
+        <path d="M7 0v6H0V4h5V0h2zM0 8h7v6H5v-4H0V8zm11 0H9v6h2v-4h5V8h-5zm5-2H9V0h2v4h5v2z"/>
     </svg>
 
 

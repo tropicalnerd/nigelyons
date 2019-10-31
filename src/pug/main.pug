@@ -30,7 +30,7 @@ main.main
             .player__time #[span.player__time-current 0:00] #[span.player__time-divider /] #[span.player__time-remaining 0:00]
 
             button.player__button.player__mute-toggle(title='Toggle Mute')
-              +player__icon('mute', 'Mute', 20, 20, 0)
+              +player__icon('mute', 'Mute', 16, 16, 0)
               //- <svg fill="currentColor" class="player__icon" width="20" height="20" viewBox="0 0 20 20" role="img" aria-labelledby="audio-title">
               //-   <title id="audio-title">Mute</title>
               //-   <path d="M8.8 0L2.8 6H0V8.8V11.2V14H2.8L8.8 20V0Z" />
@@ -40,7 +40,7 @@ main.main
               input(type='range' name='volume' min=0 max=1 step='0.05' value='1' title='Volume')
             
             button.player__button.player__quality-toggle(title='Quality')
-              +player__icon('quality', 'Quality', 22, 20, 0)
+              +player__icon('quality', 'Quality', 16, 16, 0)
               //- <svg fill="currentColor" width="20" height="20" viewBox="0 0 20 20" role="img" aria-labelledby="quality-title">
               //-   <title id="quality-title">Quality</title>
               //-   <path fill-rule="evenodd" d="M8.79444 3.10342L6.31341 0.701493C5.39864 1.06448 4.55015 1.55855 3.79111 2.16052L4.63041 5.50887C4.11555 6.12378 3.70434 6.82845 3.42368 7.596L0.10538 8.543C0.0359497 9.01863 0 9.50512 0 10C0 10.4949 0.0359498 10.9814 0.10538 11.457L3.42369 12.404C3.70435 13.1716 4.11555 13.8762 4.63041 14.4911L3.79111 17.8395C4.55015 18.4415 5.39864 18.9355 6.31341 19.2985L8.79445 16.8966C9.18608 16.9646 9.58888 17 9.99996 17C10.411 17 10.8139 16.9646 11.2055 16.8966L13.6865 19.2985C14.6013 18.9356 15.4498 18.4415 16.2088 17.8395L15.3695 14.4911C15.8844 13.8762 16.2956 13.1716 16.5762 12.404L19.8946 11.457C19.9641 10.9814 20 10.4949 20 10C20 9.50513 19.9641 9.01864 19.8946 8.54301L16.5762 7.59599C16.2956 6.82845 15.8844 6.1238 15.3695 5.50889L16.2088 2.16048C15.4498 1.55852 14.6013 1.06446 13.6865 0.701477L11.2055 3.10343C10.8139 3.03544 10.411 3.00001 9.99996 3.00001C9.58888 3.00001 9.18608 3.03544 8.79444 3.10342ZM9.99919 13C11.656 13 12.9992 11.6569 12.9992 10C12.9992 8.34315 11.656 7.00001 9.99919 7.00001C8.34234 7.00001 6.99919 8.34315 6.99919 10C6.99919 11.6569 8.34234 13 9.99919 13Z" />
@@ -68,7 +68,7 @@ main.main
               //-   <path d="M0 0H3H8V3H3V7H0V3V0ZM20 0V3V7H17V3H12V0H17H20ZM17 18H20V15V11H17V15H12V18H17ZM0 18V15V11H3V15H8V18H3H0Z" />
               //-   //- <path d="M7.28571 0H2.42857H2.5332e-07V2.42857V5.82857H2.42857L2.42857 2.42857H7.28571V0ZM21.8571 0H17V2.42857H21.8571V5.82857H24.2857V2.42857V0H21.8571ZM2.42857 14.5714H7.28571V17H2.42857H2.5332e-07V14.5714L0 11.1714H2.42857L2.42857 14.5714ZM21.8571 14.5714H17V17H21.8571H24.2857V14.5714V11.1714H21.8571V14.5714Z"/>
               //- </svg>
-              +player__icon('fullscreen', 'Fullscreen', 20, 18, 0)
+              +player__icon('fullscreen', 'Fullscreen', 16, 14, 0)
               
 
           
