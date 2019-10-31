@@ -13,6 +13,8 @@ for (let i = 0; i < sources.length; i++) {
     quality: Number(sourceNodes[i].getAttribute('data-quality'))
   };
 }
+
+// Make sure sources are in order for quality testing later
 sources.sort(function(a, b) {
   return a.quality - b.quality;
 });
@@ -28,7 +30,7 @@ const pauseIcon =
 
 const progressTimeCurrent = player.querySelector('.player__time-current');
 const progressTimeRemaining = player.querySelector('.player__time-remaining');
-const progressRange = player.querySelector('.player__progress-range');
+const progressRange = player.querySelector('.player__progress > input');
 const muteToggle = player.querySelector('.player__mute-toggle');
 const muteToggleIcon = muteToggle.querySelector('svg');
 const muteIcon = muteToggleIcon.innerHTML;
@@ -36,7 +38,7 @@ const unmuteIcon =
   '<title id="mute-title-0">Unmute</title>' +
   '<use xlink:href="#player__icon--unmute" />';
 
-const volumeRange = player.querySelector('.player__volume-range');
+const volumeRange = player.querySelector('.player__volume > input');
 
 const qualityToggle = player.querySelector('.player__quality-toggle');
 const qualityMenu = player.querySelector('.player__quality-menu');
@@ -167,11 +169,13 @@ function updateMenu() {
 
 function toggleFullscreen() {
   if (!document.fullscreenElement) {
-    player.requestFullscreen().catch(err => {
-      console.log(err);
-    });
+    player.requestFullscreen().then(() => { fullscreenToggleIcon.innerHTML = unfullscreenIcon; })
+      .catch(err => {
+        console.log(err);
+      });
   } else {
     document.exitFullscreen();
+    fullscreenToggleIcon.innerHTML = fullscreenIcon;
   }
 }
 

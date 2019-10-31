@@ -24,11 +24,11 @@ main.main
               +player__icon('play', 'Play', 25, 20, 0)
 
           .player__controls-wrap
-            .player__time #[span.player__time-current 0:00] #[span.player__time-divider /] #[span.player__time-remaining 0:00]
-            +range-slider('progress')
-              //- input.range-slider__input.range-slider__input--progress(type='range' name='progress' min=0 max=1 step='.05' value='0')
-              input.player__progress-range(type='range' name='progress' min=0 max=1 step='any' value='0' title='Progress')
+            label.player__progress.pure-material-slider
+              input(type='range' name='progress' min=0 max=1 step='any' value='0' title='Progress')
             
+            .player__time #[span.player__time-current 0:00] #[span.player__time-divider /] #[span.player__time-remaining 0:00]
+
             button.player__button.player__mute-toggle(title='Toggle Mute')
               +player__icon('mute', 'Mute', 20, 20, 0)
               //- <svg fill="currentColor" class="player__icon" width="20" height="20" viewBox="0 0 20 20" role="img" aria-labelledby="audio-title">
@@ -36,8 +36,8 @@ main.main
               //-   <path d="M8.8 0L2.8 6H0V8.8V11.2V14H2.8L8.8 20V0Z" />
               //-   <path d="M20 9.98633V10.0137C19.9964 13.2593 18.7029 16.1972 16.6135 18.3247L15.6324 17.3258C17.4737 15.4509 18.6125 12.8609 18.6125 10C18.6125 7.13911 17.4737 4.54905 15.6324 2.67422L16.6135 1.67525C18.7029 3.80275 19.9964 6.74073 20 9.98633ZM13.9973 15.6608C15.4201 14.2121 16.3001 12.2107 16.3001 10C16.3001 7.78931 15.4201 5.7879 13.9973 4.33917L13.0162 5.33813C14.188 6.53121 14.9127 8.17943 14.9127 10C14.9127 11.8206 14.188 13.4688 13.0162 14.6619L13.9973 15.6608ZM11.3811 12.9969C12.1343 12.2299 12.6002 11.1704 12.6002 10C12.6002 8.82963 12.1343 7.77006 11.3811 7.00308L10.4 8.00205C10.9022 8.51337 11.2128 9.21975 11.2128 10C11.2128 10.7802 10.9022 11.4866 10.4 11.9979L11.3811 12.9969Z"/>
               //- </svg>
-            +range-slider('volume')
-              input.player__volume-range(type='range' name='volume' min=0 max=1 step='0.05' value='1' title='Volume')
+            label.player__volume.pure-material-slider
+              input(type='range' name='volume' min=0 max=1 step='0.05' value='1' title='Volume')
             
             button.player__button.player__quality-toggle(title='Quality')
               +player__icon('quality', 'Quality', 22, 20, 0)
