@@ -2,48 +2,38 @@
 /* eslint semi: "error" */
 
 /* Get our Elements */
-const video = document.querySelector('.block__video');
-const sourceNodes = video.querySelectorAll('source');
-const sources = new Array(sourceNodes.length);
-for (let i = 0; i < sources.length; i++) {
-  sources[i] = {
-    type: sourceNodes[i].getAttribute('type'),
-    src: sourceNodes[i].getAttribute('src'),
-    quality: Number(sourceNodes[i].getAttribute('data-quality'))
-  };
-}
-
-// Make sure sources are in order for quality testing later
-sources.sort(function(a, b) {
-  return a.quality - b.quality;
+const videos = document.querySelectorAll('video');
+videos.forEach(video => {
+  video.sources = video.querySelectorAll('source');
 });
 
 /* Build out functions */
 
-/* Check current video height and return optimal video quality */
-function autoQuality() {
-  const videoHeight = video.offsetHeight;
-  let newQuality;
-  for (let i = 0; i < sources.length; i++) {
-    if (videoHeight <= sources[i].quality) {
-      newQuality = sources[i].quality;
-      break;
+/* Check video height and return optimal video src */
+function autoQuality(video) {
+  let newQuality = 10000;
+  let newSrc;
+  video.sources.forEach(function(source) {
+    const videoHeight = video.offsetHeight;
+    const sourceQuality = Number(source.dataset.quality);
+    if (videoHeight <= sourceQuality &&
+      sourceQuality <= newQuality) {
+      newQuality = sourceQuality;
+      newSrc = source.src;
     }
-  }
-  return newQuality;
+  });
+
+  return newSrc;
 }
 
 /* If new quality is different than current quality, switch video sources */
-function updateSource(newQuality) {
-  const currentSrc = new URL(video.currentSrc);
-  const index = sources.findIndex(source => source.quality === newQuality);
-  const newSrc = new URL(sources[index].src, currentSrc.origin);
-  if (currentSrc.href !== newSrc.href) {
+function updateSource(video, newSrc) {
+  if (video.currentSrc !== newSrc) {
     const currentTime = video.currentTime;
-    const paused = video.paused;
-    video.src = newSrc.href;
+    const isPaused = video.paused;
+    video.src = newSrc;
     video.currentTime = currentTime;
-    if (!paused) {
+    if (!isPaused) {
       video.play();
     }
   }
@@ -65,14 +55,15 @@ function debounce(func, wait, immediate) {
   };
 }
 
-var debounceUpdateSource = debounce(function() {
-  updateSource(autoQuality());
+var debounceUpdateSources = debounce(function() {
+  videos.forEach(video => updateSource(video, autoQuality(video)));
 }, 250);
 
-video.addEventListener('loadedmetadata', () => {
-  updateSource(autoQuality());
+/* Add event listeners */
+videos.forEach(video => video.addEventListener('loadedmetadata', () => {
+  updateSource(video, autoQuality(video));
 }, {
   once: true
-});
+}));
 
-window.addEventListener('resize', debounceUpdateSource);
+window.addEventListener('resize', debounceUpdateSources);
