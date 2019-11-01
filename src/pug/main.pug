@@ -1,14 +1,14 @@
 main.main
   .main__container.container
     +c-block('Reel', 'reel')
-      div.block__video-wrap.block__video-wrap--reel
-        video.block__video.block__video--reel(width='480' height='270' controls)
-          source(src='video/nigel-reel-2015_270.mp4' type='video/mp4' data-quality='270')
-          source(src='video/nigel-reel-2015_360.mp4' type='video/mp4' data-quality='360')
-          source(src='video/nigel-reel-2015_720.mp4' type='video/mp4' data-quality='720')
-          source(src='video/nigel-reel-2015_1080.mp4' type='video/mp4' data-quality='1080')
+      //- div.block__video-wrap.block__video-wrap--reel
+      video.block__video.block__video--reel(width='480' height='270' controls preload='metadata')
+        source(src='video/nigel-reel-2015_270.mp4' type='video/mp4' data-quality='270')
+        source(src='video/nigel-reel-2015_360.mp4' type='video/mp4' data-quality='360')
+        source(src='video/nigel-reel-2015_720.mp4' type='video/mp4' data-quality='720')
+        source(src='video/nigel-reel-2015_1080.mp4' type='video/mp4' data-quality='1080')
     
-    //- +c-block('Portfolio', 'portfolio')
+    +c-block('Portfolio', 'portfolio')
       +portfolio-item('Clones of Clones - Somebody Else', 'Directed, Filmed and Edited.', 'September 22, 2015', 'Music Video')
         <iframe src="https://www.youtube.com/embed/hA4d5RYNZNg?rel=0" allowfullscreen="allowfullscreen" width="740" height="416" frameborder="0" title="Video Player"></iframe>
       
