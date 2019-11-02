@@ -1,0 +1,1 @@
+"use strict";var videos=document.getElementsByTagName("video");console.log(videos);
