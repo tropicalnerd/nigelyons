@@ -14,7 +14,7 @@ function autoQuality(video) {
   let newQuality = 10000;
   let newSrc;
   video.sources.forEach(function(source) {
-    const videoHeight = video.offsetHeight;
+    const videoHeight = video.offsetHeight * window.devicePixelRatio;
     const sourceQuality = Number(source.dataset.quality);
     if (videoHeight <= sourceQuality &&
       sourceQuality <= newQuality) {
@@ -31,6 +31,7 @@ function updateSource(video, newSrc) {
   if (video.currentSrc !== newSrc) {
     const currentTime = video.currentTime;
     const isPaused = video.paused;
+
     video.src = newSrc;
     video.currentTime = currentTime;
     if (!isPaused) {
