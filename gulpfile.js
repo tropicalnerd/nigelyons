@@ -1,9 +1,13 @@
 /* eslint-disable semi */
 var gulp = require('gulp');
+var uglify = require('gulp-uglify');
 var svgo = require('gulp-svgo');
 var pug = require('gulp-pug');
 var stylus = require('gulp-stylus');
 var browserSync = require('browser-sync').create();
+const sourcemaps = require('gulp-sourcemaps');
+const babel = require('gulp-babel');
+// const concat = require('gulp-concat');
 
 var site = 'public/';
 
@@ -13,11 +17,22 @@ gulp.task('root', function () {
     .pipe(gulp.dest(site));
 });
 
-// Copy .js files
-gulp.task('js', function() {
-  return gulp.src('src/js/*.js')
-    .pipe(gulp.dest(site + '/js'));
-});
+// JavaScript
+gulp.task('js', () =>
+  gulp.src('src/js/*.js')
+    .pipe(sourcemaps.init())
+    .pipe(babel({
+      presets: ['@babel/preset-env']
+    }))
+    .pipe(uglify())
+    .pipe(gulp.dest(site + '/js'))
+);
+
+// gulp.task('uglify', function () {
+//   return gulp.src('src/js/*.js')
+//     .pipe(uglify())
+//     .pipe(gulp.dest(site + '/js'))
+// });
 
 // Compile Pug files into HTML
 gulp.task('pug', function () {
