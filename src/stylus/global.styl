@@ -33,6 +33,7 @@ a
 
 svg
   overflow: visible
+  display: block
 
 .svg-fill--color__0
   fill: color__0
@@ -44,3 +45,51 @@ svg
   max-width: 80rem
   margin-left: auto
   margin-right: auto
+
+.visibly-hidden
+  position: absolute !important
+  width: 1px !important
+  height: 1px !important
+  opacity: 0 !important
+  overflow: hidden
+
+// .range-slider
+//   &__input
+//     overflow: hidden
+//     position: absolute
+//     width: 1px
+//     height: 1px
+//     opacity: 0
+//     margin: 0
+//     padding: 0
+
+//   &__wrap
+//     position: relative
+//     width: 100%
+//     height: 4px
+//     background-color: color__1
+//     z-index: 3
+  
+//   &__fill
+//     position: absolute
+//     width: 0
+//     height: 100%
+//     user-select: none;
+//     z-index: 4
+//     background-color: color__8
+    
+
+//   &__handle
+//     cursor: pointer
+//     position: absolute
+//     top: -5.5px
+//     left: 0
+//     width: 15px
+//     height: 15px
+//     margin-left: -8px
+//     border-radius: 50%
+//     transition: all .2s ease
+//     user-select: none
+//     z-index: 5
+//     background-color: color__8
+

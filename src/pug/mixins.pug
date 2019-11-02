@@ -21,3 +21,16 @@ mixin portfolio-item(title, desc, date, genre)
       .portfolio-item__desc #{desc}
       .portfolio-item__date #{date}
       .portfolio-item__genre #{genre}
+
+mixin player__icon(slug, title, width, height, playerIndex)
+  svg.player__icon(width=width height=height role='img' aria-labelledby=slug + '-title-' + playerIndex focusable='false')
+    title(id=slug + '-title-' + playerIndex) #{title}
+    use(xlink:href='#player__icon--' + slug)
+
+mixin range-slider(slug)
+  block
+  //- .range-slider(class='player__' + slug)
+  //-   block
+  //-   .range-slider__wrap(class='range-slider__wrap--' + slug)
+  //-     .range-slider__fill(class='range-slider__fill--' + slug)
+  //-     .range-slider__handle(class='range-slider__handle--' + slug)

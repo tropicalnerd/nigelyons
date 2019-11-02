@@ -1,9 +1,13 @@
 /* eslint-disable semi */
 var gulp = require('gulp');
+var uglify = require('gulp-uglify');
 var svgo = require('gulp-svgo');
 var pug = require('gulp-pug');
 var stylus = require('gulp-stylus');
 var browserSync = require('browser-sync').create();
+const sourcemaps = require('gulp-sourcemaps');
+const babel = require('gulp-babel');
+// const concat = require('gulp-concat');
 
 var site = 'public/';
 
@@ -12,6 +16,23 @@ gulp.task('root', function () {
   return gulp.src('src/root/.htaccess')
     .pipe(gulp.dest(site));
 });
+
+// JavaScript
+gulp.task('js', () =>
+  gulp.src('src/js/*.js')
+    .pipe(sourcemaps.init())
+    .pipe(babel({
+      presets: ['@babel/preset-env']
+    }))
+    .pipe(uglify())
+    .pipe(gulp.dest(site + '/js'))
+);
+
+// gulp.task('uglify', function () {
+//   return gulp.src('src/js/*.js')
+//     .pipe(uglify())
+//     .pipe(gulp.dest(site + '/js'))
+// });
 
 // Compile Pug files into HTML
 gulp.task('pug', function () {
@@ -66,10 +87,11 @@ gulp.task('serve', function () {
     // browser: 'FireFox'
   });
 
-  gulp.watch('src/stylus/*.styl', gulp.series('stylus'));
-  gulp.watch(['src/pug/*.pug', 'src/js/*.js'], gulp.series('pug'));
-  gulp.watch('src/images/*.svg', gulp.series('svgo', 'pug'));
-  gulp.watch(site + '*.html').on('change', browserSync.reload);
+  gulp.watch('src/js/*.js', gulp.series('js'));
+  gulp.watch(['src/stylus/*.styl', 'src/stylus/*.css'], gulp.series('stylus'));
+  gulp.watch(['src/pug/*.pug'], gulp.series('pug'));
+  // gulp.watch('src/images/*.svg', gulp.series('svgo', 'pug'));
+  gulp.watch([site + 'index.html', site + 'js/*.js']).on('change', browserSync.reload);
 });
 
 gulp.task('default', gulp.series('serve'));

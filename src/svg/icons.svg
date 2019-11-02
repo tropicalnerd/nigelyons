@@ -1,0 +1,33 @@
+<svg class="player__icons" style="display:none">
+    <symbol id="player__icon--play" viewBox="0 0 25 20" fill="currentColor">
+        <path d="M0 0l25 10L0 20V0z"/>
+    </symbol>
+    
+    <symbol id="player__icon--pause" viewBox="0 0 25 20" fill="currentColor">
+        <rect width="9" height="20"/>
+        <rect width="9" height="20" x="16"/>
+    </symbol>
+
+    <symbol id="player__icon--mute" viewBox="0 0 16 16" fill="currentColor">
+        <path d="M8 0L3 5H0v6h3l5 5V0zM11.95 12.95A6.978 6.978 0 0014 8a6.978 6.978 0 00-2.05-4.95l1.414-1.414A8.972 8.972 0 0116 8a8.972 8.972 0 01-2.636 6.364L11.95 12.95zm-1.414-8.486A4.984 4.984 0 0112 8c0 1.38-.56 2.63-1.464 3.536L9.12 10.12A2.99 2.99 0 0010 8a2.99 2.99 0 00-.879-2.121l1.415-1.415z"/>
+    </symbol>
+
+    <symbol id="player__icon--unmute" viewBox="0 0 16 16">
+        <path fill="currentColor" d="M8 0L3 5H0v6h3l5 5V0z"/>
+        <path stroke="currentColor" stroke-width="1.75" d="M10 3l5 10m0-10l-5 10"/>
+    </symbol>
+
+    <symbol id="player__icon--quality" viewBox="0 0 16 16">
+        <path fill="currentColor" fill-rule="evenodd" d="M6 0h4v2.227l2 1.154 1.928-1.113 2 3.464L14 6.845v2.31l1.928 1.113-2 3.464L12 12.62l-2 1.155V16H6v-2.226l-2-1.155-1.928 1.113-2-3.464L2 9.155v-2.31L.072 5.732l2-3.464L4 3.381l2-1.154V0zm2 11a3 3 0 100-6 3 3 0 000 6z"/>
+    </symbol>
+
+    <symbol id="player__icon--fullscreen" viewBox="0 0 16 14" fill="currentColor">
+        <path d="M2 0H0v6h2V2h5V0H2zm7 0h7v6h-2V2H9V0zm7 8v6H9v-2h5V8h2zM2 14H0V8h2v4h5v2H2z"/>
+    </symbol>
+
+    <svg id="player__icon--unfullscreen" viewBox="0 0 16 14" fill="currentColor">
+        <path d="M7 0v6H0V4h5V0h2zM0 8h7v6H5v-4H0V8zm11 0H9v6h2v-4h5V8h-5zm5-2H9V0h2v4h5v2z"/>
+    </svg>
+
+
+</svg>

@@ -4,6 +4,18 @@
   --margin__2: 1.5rem;
   --margin__3: 0.75rem;
   --margin__4: 0.45rem;
+  --color__0: #131314;
+  --color__1: #262627;
+  --color__2: #3f4041;
+  --color__3: #595a5b;
+  --color__4: #7f8082;
+  --color__5: #a5a6a8;
+  --color__6: #bfbfc0;
+  --color__7: #d9d9da;
+  --color__8: #ececec;
+  --color__9: #fff;
+  --material-primary-rgb: 236, 236, 236;
+  --material-secondary-rgb: 63, 64, 65;
 }
 @font-face {
   font-family: Microgramma D Extended;
@@ -47,6 +59,7 @@ a {
 }
 svg {
   overflow: visible;
+  display: block;
 }
 .svg-fill--color__0 {
   fill: #131314;
@@ -58,6 +71,13 @@ svg {
   max-width: 80rem;
   margin-left: auto;
   margin-right: auto;
+}
+.visibly-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  opacity: 0 !important;
+  overflow: hidden;
 }
 .masthead__container {
   display: grid;
@@ -172,15 +192,11 @@ svg {
   color: #bfbfc0;
   line-height: 1.5;
 }
-.block__video-wrap {
-  position: relative;
-  padding-bottom: 56.25%;
-  height: 0;
-}
 .block__video,
 .portfolio-item__video {
   width: 100%;
   height: auto;
+  background-color: #000;
 }
 .block__video--reel {
   border-radius: 1rem;

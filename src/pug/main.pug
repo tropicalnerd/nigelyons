@@ -2,23 +2,13 @@ main.main
   .main__container.container
     +c-block('Reel', 'reel')
       //- div.block__video-wrap.block__video-wrap--reel
-        //- <video preload="none" tabindex="-1" style="" src="blob:https://player.vimeo.com/5810eb8f-8f0d-3f44-ae5d-c390c870b948"></video>
-      video(
-        class="block__video block__video--reel"
-        width="740" height="416"
-        controls)
-        source(src='video/Nigel Reel 2015.mp4' type='video/mp4')
-        //- <iframe src="https://player.vimeo.com/video/120547617?color=ffffff&amp;title=0&amp;byline=0&amp;portrait=0" width="740" height="416" frameborder="0" allowfullscreen="allowfullscreen" title="Video Player"></iframe>   
+      video.block__video.block__video--reel(width='480' height='270' src='video/nigel-reel-2015_720.mp4' controls preload='metadata')
+        source(src='video/nigel-reel-2015_270.mp4' type='video/mp4' data-quality='270')
+        source(src='video/nigel-reel-2015_360.mp4' type='video/mp4' data-quality='360')
+        source(src='video/nigel-reel-2015_720.mp4' type='video/mp4' data-quality='720')
+        source(src='video/nigel-reel-2015_1080.mp4' type='video/mp4' data-quality='1080')
     
-    +c-block('About', 'about')
-      picture.block__text--about__image
-        source(type='image/webp' srcset='images/nigel_900.webp 900w, images/nigel_600.webp 600w, images/nigel_300.webp 300w')
-        source(type='image/jpg' srcset='images/nigel_900.jpg 900w, images/nigel_600.jpg 600w, images/nigel_300 300w')
-        img(src='images/nigel_900.jpg' srcset='images/nigel_900.jpg 900w, images/nigel_600.jpg 600w, images/nigel_300 300w' alt='Nigel Lyons standing in the street in DC facing the camera')
-      h3 Nigel Lyons
-      p Hailing from Ohio, now freelancing in Washington, DC. Shooter and editor of all things documentary, political, art, music and tv. Whether creating a captivating video for a successful Kickstarter campaign or shooting a music video in anamorphic widescreen, Nigel brings his unique ideas, vision and creative energies to every project.
-    
-    //- +c-block('Portfolio', 'portfolio')
+    +c-block('Portfolio', 'portfolio')
       +portfolio-item('Clones of Clones - Somebody Else', 'Directed, Filmed and Edited.', 'September 22, 2015', 'Music Video')
         <iframe src="https://www.youtube.com/embed/hA4d5RYNZNg?rel=0" allowfullscreen="allowfullscreen" width="740" height="416" frameborder="0" title="Video Player"></iframe>
       
@@ -34,5 +24,13 @@ main.main
       +portfolio-item('The Importance of S/4HANA', 'Filmed', 'February 25, 2015', 'Corporate')
         <iframe src="https://www.youtube.com/embed/7S4-_--ZvkE?rel=0" allowfullscreen="allowfullscreen" width="740" height="416" frameborder="0" title="Video Player"></iframe>
 
-//- script(src='video-js/video.min.js')
-//- script(src='video-js/videojs-vimeo.min.js')      
+    +c-block('About', 'about')
+      picture.block__text--about__image
+        source(type='image/webp' srcset='images/nigel_900.webp 900w, images/nigel_600.webp 600w, images/nigel_300.webp 300w')
+        source(type='image/jpg' srcset='images/nigel_900.jpg 900w, images/nigel_600.jpg 600w, images/nigel_300 300w')
+        img(src='images/nigel_900.jpg' srcset='images/nigel_900.jpg 900w, images/nigel_600.jpg 600w, images/nigel_300 300w' alt='Nigel Lyons standing in the street in DC facing the camera')
+      h3 Nigel Lyons
+      p Hailing from Ohio, now freelancing in Washington, DC. Shooter and editor of all things documentary, political, art, music and tv. Whether creating a captivating video for a successful Kickstarter campaign or shooting a music video in anamorphic widescreen, Nigel brings his unique ideas, vision and creative energies to every project.
+
+
+script(src='js/video.js')
