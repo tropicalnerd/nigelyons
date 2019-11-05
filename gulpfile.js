@@ -1,9 +1,10 @@
 /* eslint-disable semi */
+'use strict';
+
 var gulp = require('gulp');
-var uglify = require('gulp-uglify');
-var svgo = require('gulp-svgo');
 var pug = require('gulp-pug');
-var stylus = require('gulp-stylus');
+var uglify = require('gulp-uglify');
+var stylus = require('gulp-sass');
 var browserSync = require('browser-sync').create();
 const sourcemaps = require('gulp-sourcemaps');
 const babel = require('gulp-babel');
