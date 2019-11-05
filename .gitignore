@@ -1,5 +1,5 @@
 node_modules
 .DS_Store
 upload
-src/video
-public/video
+src/videos
+dist/videos
