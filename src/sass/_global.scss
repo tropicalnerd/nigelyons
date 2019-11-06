@@ -1,0 +1,61 @@
+// Harmonic Scale
+// $s-ratio: 1.5;
+// $s0: 1rem;
+// $s-1: $s0 / $s-ratio;
+// $s-2: $s-1 / $s-ratio;
+// $s-3: $s-2 / $s-ratio;
+// $s-4: $s-3 / $s-ratio;
+// $s-5: $s-4 / $s-ratio;
+// $s1: $s0 * $s-ratio;
+// $s2: $s1 * $s-ratio;
+// $s3: $s2 * $s-ratio;
+// $s4: $s3 * $s-ratio;
+// $s5: $s4 * $s-ratio;
+
+:root {
+    --s-ratio: 1.5;
+    --s0: 1rem;
+    --s-1: calc(var(--s0) / var(--s-ratio));
+    --s-2: calc(var(--s1) / var(--s-ratio));
+    --s-3: calc(var(--s2) / var(--s-ratio));
+    --s-4: calc(var(--s3) / var(--s-ratio));
+    --s-5: calc(var(--s4) / var(--s-ratio));
+    --s1: calc(var(--s0) * var(--s-ratio));
+    --s2: calc(var(--s1) * var(--s-ratio));
+    --s3: calc(var(--s2) * var(--s-ratio));
+    --s4: calc(var(--s3) * var(--s-ratio));
+    --s5: calc(var(--s4) * var(--s-ratio));
+
+    --space: var(--s0)
+}
+
+$measure: 60ch;
+
+.stack {
+    // --space: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    > * {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    > * + * {
+        margin-top: var(--space);
+    }
+
+    &.recursive {
+        // --space: inherit;
+
+        * {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+        
+        * + * {
+            margin-top: var(--space);
+        }
+    }
+}

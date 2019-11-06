@@ -1,6 +1,17 @@
-include mixins
+include global
 
 doctype html
 html(lang="en")
   include head
-  include body
+  body
+    //- include main
+    +stack(class="fat-stack" id="num1" space="var(--s2)" recursive="false")
+      p hi
+      p there
+      p who
+      div
+        p the
+        p fuck
+      p are
+      p you
+    include footer

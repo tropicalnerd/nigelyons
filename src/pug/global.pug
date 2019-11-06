@@ -1,0 +1,8 @@
+mixin stack()
+    - var style
+    //- - if (attributes.recursive) { style={style: '--space: inherit'}}
+    - if (attributes.space) { style={style: '--space: ' + attributes.space + ';' }}
+    div.stack(class!=[attributes.class, {recursive: attributes.recursive === "true" }]
+        id=attributes.id
+        )&attributes(style)
+        block
