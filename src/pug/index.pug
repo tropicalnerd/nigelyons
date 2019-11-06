@@ -5,11 +5,11 @@ html(lang="en")
   include head
   body
     //- include main
-    +stack(class="fat-stack" id="num1" space="var(--s2)" recursive="false")
+    +stack(class="fat-stack" id="num1" space="var(--s2)" recursive="true")
       p hi
       p there
       p who
-      div
+      +box(padding="var(--s2)")
         p the
         p fuck
       p are
