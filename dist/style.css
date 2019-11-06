@@ -79,11 +79,12 @@ select {
   --s3: calc(var(--s2) * var(--s-ratio));
   --s4: calc(var(--s3) * var(--s-ratio));
   --s5: calc(var(--s4) * var(--s-ratio));
-  --space: var(--s1);
+  --space: var(--s0);
   --padding: var(--s1);
-  --gutters: 0; }
+  --gutters: var(--s2); }
 
 .stack {
+  --space: 1.5rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-start; }
@@ -98,16 +99,11 @@ select {
   .stack.recursive * + * {
     margin-top: var(--space); }
 
-.box {
-  padding: var(--padding); }
-
 .center {
   box-sizing: content-box;
   margin-left: auto;
   margin-right: auto;
-  max-width: var(--measure);
-  padding-left: var(--gutters);
-  padding-right: var(--gutters); }
+  max-width: var(--measure); }
   .center.and-text {
     text-align: center; }
   .center.intrensic {
